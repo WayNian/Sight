@@ -1,6 +1,7 @@
 package com.sight.waynian.sight.fragment;
 
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.base.BaseFragment;
@@ -10,15 +11,34 @@ import com.sight.waynian.sight.base.BaseFragment;
  */
 
 public class MoreFragment extends BaseFragment {
-    private View view;
     @Override
     protected View initView() {
-        view = View.inflate(mContext, R.layout.fragment_more, null);
-        initUI();
-        return view;
+        if (null != rootView) {
+            ViewGroup parent = (ViewGroup) rootView.getParent();
+            if (null != parent) {
+                parent.removeView(rootView);
+            }
+        } else {
+            rootView = View.inflate(mContext, R.layout.fragment_more, null);
+            initUI();
+        }
+        return rootView;
     }
 
     private void initUI() {
 
+    }
+
+    @Override
+    protected void onFragmentVisibleChange(boolean isVisible) {
+        super.onFragmentVisibleChange(isVisible);
+        if (isVisible) {
+            //   do things when fragment is visible
+            //    if (ListUtils.isEmpty(mDataList) && !isRefreshing()) {
+            //        setRefresh(true);
+            //        loadServiceData(false);
+        } else {
+            //        setRefresh(false);
+        }
     }
 }

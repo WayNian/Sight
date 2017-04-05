@@ -40,20 +40,27 @@ public class MainActivity extends AppCompatActivity {
             BottomNavigationViewHelper.disableShiftMode(bottomNavigationView);
         }
 
-        bottomNavigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
-            @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
+        bottomNavigationView.setOnNavigationItemSelectedListener(
+                new BottomNavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_home:
+                        viewPager.setCurrentItem(0);
                         break;
                     case R.id.navigation_dashboard:
+                        viewPager.setCurrentItem(1);
                         break;
                     case R.id.navigation_notifications:
+                        viewPager.setCurrentItem(2);
                         break;
                     case R.id.navigation_more:
+                        viewPager.setCurrentItem(3);
                         break;
                 }
+                return false;
             }
+
         });
 
 
