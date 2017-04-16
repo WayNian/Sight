@@ -1,6 +1,7 @@
 package com.sight.waynian.sight;
 
 import android.app.Application;
+import android.content.Context;
 
 import com.elvishew.xlog.LogConfiguration;
 import com.elvishew.xlog.LogLevel;
@@ -11,9 +12,13 @@ import com.elvishew.xlog.XLog;
  */
 
 public class APP extends Application {
+
+    private static Context mContext;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        mContext = getApplicationContext();
         intLog();
     }
 
@@ -32,6 +37,10 @@ public class APP extends Application {
                 config                                              // 指定日志配置，如果不指定，会默认使用 new LogConfiguration.Builder().build()
                 // 添加任意多的打印器。如果没有添加任何打印器，会默认使用 AndroidPrinter(Android)/ConsolePrinter(java)
         );
+    }
+
+    public static Context getContext() {
+        return mContext;
     }
 
 }
