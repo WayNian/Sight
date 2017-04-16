@@ -34,7 +34,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        Log.d(TAG, "setUserVisibleHint() -> isVisibleToUser: " + isVisibleToUser);
+//        Log.d(TAG, "setUserVisibleHint() -> isVisibleToUser: " + isVisibleToUser);
         if (rootView == null) {
             return;
         }
@@ -100,7 +100,7 @@ public abstract class BaseFragment extends Fragment {
      *                  false 可见  -> 不可见
      */
     protected void onFragmentVisibleChange(boolean isVisible) {
-        Log.w(TAG, "onFragmentVisibleChange -> isVisible: " + isVisible);
+//        Log.w(TAG, "onFragmentVisibleChange -> isVisible: " + isVisible);
     }
 
 }

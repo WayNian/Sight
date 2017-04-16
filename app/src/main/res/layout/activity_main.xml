@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sight.waynian.sight.MainActivity">
+    tools:context="com.sight.waynian.sight.ui.MainActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -26,6 +26,7 @@
         android:layout_gravity="bottom"
         android:background="?android:attr/windowBackground"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/navigation" />
+        app:menu="@menu/navigation"
+        />
 
 </RelativeLayout>

@@ -1,4 +1,4 @@
-package com.sight.waynian.sight;
+package com.sight.waynian.sight.ui;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -7,9 +7,11 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 
+import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.adapter.ViewPagerAdapter;
-import com.sight.waynian.sight.base.BaseFragment;
 import com.sight.waynian.sight.fragment.AudioFragment;
 import com.sight.waynian.sight.fragment.MoreFragment;
 import com.sight.waynian.sight.fragment.ReadFragment;
@@ -86,6 +88,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        viewPager.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
         setupViewPager(viewPager);
     }
 
