@@ -21,7 +21,13 @@
     <color name="md_teal_A700">#00BFA5</color>
 
     <!--tab文字-->
-    <color name="white">#FFFFFF</color>
     <color name="tab_text_pressed">#98C9F4</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="gery">#FAFAFA</color>
+    <color name="darkgery">#797979</color>
+    <color name="trangery">#512e2e2e</color>
+    <color name="black">#252525</color>
+
 
 </resources>

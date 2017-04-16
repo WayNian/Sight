@@ -1,6 +1,5 @@
 package com.sight.waynian.sight.fragment.read;
 
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -12,8 +11,8 @@ import com.sight.waynian.sight.base.BaseFragment;
  * Created by waynian on 2017/4/4.
  */
 
-public class CodeFragment extends BaseFragment {
-    private static final String TAG = CodeFragment.class.getCanonicalName();
+public class GankFragment extends BaseFragment {
+    private static final String TAG = GankFragment.class.getCanonicalName();
 
     @Override
     protected View initView() {
@@ -23,7 +22,7 @@ public class CodeFragment extends BaseFragment {
                 parent.removeView(rootView);
             }
         } else {
-            rootView = View.inflate(mContext, R.layout.fragment_code, null);
+            rootView = View.inflate(mContext, R.layout.fragment_gank, null);
             initUI();
         }
         return rootView;

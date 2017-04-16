@@ -6,13 +6,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBar;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.base.BaseFragment;
-import com.sight.waynian.sight.fragment.read.CodeFragment;
+import com.sight.waynian.sight.fragment.read.GankFragment;
 import com.sight.waynian.sight.fragment.read.ZhiHuFragment;
 
 import java.util.ArrayList;
@@ -62,9 +61,11 @@ public class ReadFragment extends BaseFragment {
 
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getChildFragmentManager());
-        adapter.addFragment(new CodeFragment(), "代码");
         adapter.addFragment(new ZhiHuFragment(), "知乎");
-        adapter.addFragment(new CodeFragment(), "果壳");
+        adapter.addFragment(new GankFragment(), "果壳");
+        adapter.addFragment(new GankFragment(), "豆瓣");
+        adapter.addFragment(new GankFragment(), "干货");
+
 
         viewPager.setAdapter(adapter);
     }
