@@ -2,7 +2,7 @@ package com.sight.waynian.sight.http;
 
 import com.elvishew.xlog.XLog;
 import com.sight.waynian.sight.api.ZhihuApiService;
-import com.sight.waynian.sight.bean.zhihu.NewsTimeLine;
+import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
 
 import java.util.concurrent.TimeUnit;
 
@@ -76,7 +76,7 @@ public class HttpMethods {
     /**
      * @param subscriber 由调用者传过来的观察者对象
      */
-    public void getTopMovie(Subscriber<NewsTimeLine> subscriber) {
+    public void getTopMovie(Subscriber<ZhihuBean> subscriber) {
         zhihuApiService.getLatestNews()
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())

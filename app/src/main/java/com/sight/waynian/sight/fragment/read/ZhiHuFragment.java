@@ -4,15 +4,20 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.sight.waynian.sight.R;
+import com.sight.waynian.sight.adapter.ZhihuAdapter;
 import com.sight.waynian.sight.base.BaseFragment;
-import com.sight.waynian.sight.bean.zhihu.NewsTimeLine;
+import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
 import com.sight.waynian.sight.http.HttpMethods;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import rx.Subscriber;
 
@@ -25,6 +30,7 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     private RecyclerView contentList;
     private SwipeRefreshLayout swipeRefresh;
+    private List<ZhihuBean.StoriesBean> list;
 
     private boolean isLoaded = true;
 
@@ -70,7 +76,7 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
     }
 
     private void getLatestNews() {
-        HttpMethods.getInstance().getTopMovie(new Subscriber<NewsTimeLine>() {
+        HttpMethods.getInstance().getTopMovie(new Subscriber<ZhihuBean>() {
             @Override
             public void onCompleted() {
             }
@@ -81,8 +87,13 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
             }
 
             @Override
-            public void onNext(NewsTimeLine newsTimeLine) {
+            public void onNext(ZhihuBean zhihuBean) {
                 swipeRefresh.setRefreshing(false);
+                list = zhihuBean.getStories();
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
+                contentList.setLayoutManager(linearLayoutManager);
+                ZhihuAdapter zhihuAdapter = new ZhihuAdapter(list,mContext);
+                contentList.setAdapter(zhihuAdapter);
             }
         });
     }

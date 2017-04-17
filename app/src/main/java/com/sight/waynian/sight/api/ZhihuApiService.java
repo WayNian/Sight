@@ -1,7 +1,7 @@
 package com.sight.waynian.sight.api;
 
 import com.sight.waynian.sight.bean.zhihu.News;
-import com.sight.waynian.sight.bean.zhihu.NewsTimeLine;
+import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
 import com.sight.waynian.sight.bean.zhihu.SplashImage;
 
 import retrofit2.http.GET;
@@ -18,10 +18,10 @@ public interface ZhihuApiService {
     Observable<SplashImage> getSplashImage();
 
     @GET("news/latest")
-    Observable<NewsTimeLine> getLatestNews();
+    Observable<ZhihuBean> getLatestNews();
 
     @GET("news/before/{time}")
-    Observable<NewsTimeLine> getBeforetNews(@Path("time") String time);
+    Observable<ZhihuBean> getBeforetNews(@Path("time") String time);
 
     @GET("news/{id}")
     Observable<News> getDetailNews(@Path("id") String id);
