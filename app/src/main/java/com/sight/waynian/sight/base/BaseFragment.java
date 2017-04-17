@@ -60,12 +60,6 @@ public abstract class BaseFragment extends Fragment {
         isFragmentVisible = false;
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return initView();
-    }
-
     /**
      * onViewCreated在onCreateView执行完后立即执行。
      * onCreateView返回的就是fragment要显示的view。
@@ -80,12 +74,6 @@ public abstract class BaseFragment extends Fragment {
             isFragmentVisible = true;
         }
     }
-
-    /**
-     * 强制子类执行此方法
-     * @return
-     */
-    protected abstract View initView();
 
     /**************************************************************
      *  自定义的回调方法，子类可根据需求重写

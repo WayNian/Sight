@@ -1,6 +1,9 @@
 package com.sight.waynian.sight.fragment;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,14 +17,10 @@ import com.sight.waynian.sight.base.BaseFragment;
 public class AudioFragment extends BaseFragment {
     private static final String TAG = AudioFragment.class.getCanonicalName();
 
+    @Nullable
     @Override
-    protected View initView() {
-        if (null != rootView) {
-            ViewGroup parent = (ViewGroup) rootView.getParent();
-            if (null != parent) {
-                parent.removeView(rootView);
-            }
-        } else {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        if (null == rootView) {
             rootView = View.inflate(mContext, R.layout.fragment_audio, null);
             initUI();
         }
@@ -31,6 +30,7 @@ public class AudioFragment extends BaseFragment {
     private void initUI() {
 
     }
+
 
     @Override
     protected void onFragmentVisibleChange(boolean isVisible) {

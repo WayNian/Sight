@@ -1,6 +1,8 @@
 package com.sight.waynian.sight.fragment;
 
-import android.util.Log;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -12,9 +14,9 @@ import com.sight.waynian.sight.base.BaseFragment;
  */
 
 public class VideoFragment extends BaseFragment {
-    private static final String TAG = VideoFragment.class.getCanonicalName();
+    @Nullable
     @Override
-    protected View initView() {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (null != rootView) {
             ViewGroup parent = (ViewGroup) rootView.getParent();
             if (null != parent) {

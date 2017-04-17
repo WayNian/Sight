@@ -1,17 +1,20 @@
 package com.sight.waynian.sight.fragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.base.BaseFragment;
 import com.sight.waynian.sight.fragment.read.GankFragment;
+import com.sight.waynian.sight.fragment.read.GuokrFragment;
 import com.sight.waynian.sight.fragment.read.ZhiHuFragment;
 
 import java.util.ArrayList;
@@ -32,8 +35,9 @@ public class ReadFragment extends BaseFragment {
         viewPager.setCurrentItem(page);
     }
 
+    @Nullable
     @Override
-    protected View initView() {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if (null != rootView) {
             ViewGroup parent = (ViewGroup) rootView.getParent();
             if (null != parent) {
@@ -45,6 +49,20 @@ public class ReadFragment extends BaseFragment {
         }
         return rootView;
     }
+
+//    @Override
+//    protected View initView() {
+//        if (null != rootView) {
+//            ViewGroup parent = (ViewGroup) rootView.getParent();
+//            if (null != parent) {
+//                parent.removeView(rootView);
+//            }
+//        } else {
+//            rootView = View.inflate(mContext, R.layout.fragment_read, null);
+//            initUI();
+//        }
+//        return rootView;
+//    }
 
     private void initUI() {
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
@@ -62,11 +80,9 @@ public class ReadFragment extends BaseFragment {
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getChildFragmentManager());
         adapter.addFragment(new ZhiHuFragment(), "知乎");
-        adapter.addFragment(new GankFragment(), "果壳");
+        adapter.addFragment(new GuokrFragment(), "果壳");
         adapter.addFragment(new GankFragment(), "豆瓣");
         adapter.addFragment(new GankFragment(), "干货");
-
-
         viewPager.setAdapter(adapter);
     }
 
@@ -108,4 +124,6 @@ public class ReadFragment extends BaseFragment {
             return mFragmentTitles.get(position);
         }
     }
+
+
 }
