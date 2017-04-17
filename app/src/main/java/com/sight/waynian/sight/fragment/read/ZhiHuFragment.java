@@ -9,9 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.sight.waynian.sight.R;
-import com.sight.waynian.sight.adapter.QuickAdapter;
 import com.sight.waynian.sight.base.BaseFragment;
 import com.sight.waynian.sight.bean.zhihu.NewsTimeLine;
 import com.sight.waynian.sight.http.HttpMethods;
@@ -27,7 +25,6 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     private RecyclerView contentList;
     private SwipeRefreshLayout swipeRefresh;
-    private QuickAdapter adapter;
 
     private boolean isLoaded = true;
 
