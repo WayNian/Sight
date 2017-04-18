@@ -37,7 +37,9 @@
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
-                app:background="@color/colorPrimary"/>
+                app:background="@color/colorPrimary"
+                app:navigationIcon="?attr/homeAsUpIndicator"
+                />
 
         </android.support.design.widget.CollapsingToolbarLayout>
 

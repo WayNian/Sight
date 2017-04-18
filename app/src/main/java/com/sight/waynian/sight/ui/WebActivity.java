@@ -1,34 +1,34 @@
 package com.sight.waynian.sight.ui;
 
-import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.ImageView;
-import android.widget.Toolbar;
 
+import com.bumptech.glide.Glide;
 import com.sight.waynian.sight.R;
+import com.sight.waynian.sight.bean.zhihu.News;
+import com.sight.waynian.sight.http.HttpMethods;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
+import rx.Subscriber;
 
-public class WebActivity extends Activity {
+public class WebActivity extends AppCompatActivity {
 
-    @BindView(R.id.image_view)
     ImageView imageView;
-    @BindView(R.id.web_view)
     WebView webView;
-    @BindView(R.id.refreshLayout)
     SwipeRefreshLayout refreshLayout;
-    @BindView(R.id.toolbar_layout)
-    CollapsingToolbarLayout toolbarLayout;
-    @BindView(R.id.scrollView)
     NestedScrollView scrollView;
+    Toolbar toolbar;
+    CollapsingToolbarLayout toolbarLayout;
 
     private String id;
 
@@ -39,40 +39,85 @@ public class WebActivity extends Activity {
         ButterKnife.bind(this);
         id = getIntent().getStringExtra("id");
         initView();
+        getDetailNews();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    private void getDetailNews() {
+        HttpMethods.getInstance().getDetailNews(new Subscriber<News>() {
+            @Override
+            public void onCompleted() {
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                refreshLayout.setRefreshing(false);
+            }
+
+            @Override
+            public void onNext(News news) {
+                refreshLayout.setRefreshing(false);
+                setWebView(news);
+
+            }
+        }, id);
+
     }
 
     private void initView() {
-        String ZHIHU_NEWS = "http://news-at.zhihu.com/api/4/news/";
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         refreshLayout = (SwipeRefreshLayout) findViewById(R.id.refreshLayout);
+        imageView = (ImageView) findViewById(R.id.image_view);
+        webView = (WebView) findViewById(R.id.web_view);
+        scrollView = (NestedScrollView) findViewById(R.id.scrollView);
+        toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
+        toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scrollView.smoothScrollTo(0, 0);
+            }
+        });
         //设置下拉刷新的按钮的颜色
         refreshLayout.setColorSchemeResources(R.color.colorPrimary);
-
-        webView = (WebView) findViewById(R.id.web_view);
-        webView.setScrollbarFadingEnabled(true);
-
-        imageView = (ImageView) findViewById(R.id.image_view);
-        toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
-
-//        webView.loadDataWithBaseURL("x-data://base",result,"text/html","utf-8",null);
-        webView.loadUrl(ZHIHU_NEWS + id);
-        //能够和js交互
-        webView.getSettings().setJavaScriptEnabled(true);
-        //缩放,设置为不能缩放可以防止页面上出现放大和缩小的图标
-        webView.getSettings().setBuiltInZoomControls(false);
-        //缓存
-        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
-        //开启DOM storage API功能
-        webView.getSettings().setDomStorageEnabled(true);
-        //开启application Cache功能
-        webView.getSettings().setAppCacheEnabled(false);
-
-        webView.setWebViewClient(new WebViewClient() {
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
+            public void onRefresh() {
+                getDetailNews();
             }
-
         });
+        setSupportActionBar(toolbar);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home){
+            finish();
+        }
+        return true;
+    }
+
+    private void setWebView(News news) {
+        WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+        String head = "<head>\n" +
+                "\t<link rel=\"stylesheet\" href=\"" + news.getCss()[0] + "\"/>\n" +
+                "</head>";
+        String img = "<div class=\"headline\">";
+        String html = head + news.getBody().replace(img, " ");
+        webView.loadDataWithBaseURL(null, html, "text/html", "utf-8", null);
+        webView.setScrollbarFadingEnabled(true);
+        toolbarLayout.setTitle(news.getTitle());
+        toolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
+        toolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
+        toolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBarPlus1);
+        toolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBarPlus1);
+        Glide.with(this).load(news.getImage()).centerCrop().into(imageView);
+
     }
 }

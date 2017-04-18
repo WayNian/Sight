@@ -2,6 +2,7 @@ package com.sight.waynian.sight.http;
 
 import com.elvishew.xlog.XLog;
 import com.sight.waynian.sight.api.ZhihuApiService;
+import com.sight.waynian.sight.bean.zhihu.News;
 import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
 
 import java.util.concurrent.TimeUnit;
@@ -74,10 +75,37 @@ public class HttpMethods {
     }
 
     /**
+     * 获取知乎最新的信息
      * @param subscriber 由调用者传过来的观察者对象
      */
-    public void getTopMovie(Subscriber<ZhihuBean> subscriber) {
+    public void getLatestNews(Subscriber<ZhihuBean> subscriber) {
         zhihuApiService.getLatestNews()
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 获取知乎详情
+     * @param subscriber
+     * @param id
+     */
+    public void getDetailNews(Subscriber<News> subscriber, String id) {
+        zhihuApiService.getDetailNews(id)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    /**
+     * 获取知乎详情
+     * @param subscriber
+     * @param id
+     */
+    public void getHistoryNews(Subscriber<ZhihuBean> subscriber, String time) {
+        zhihuApiService.getBeforetNews(time)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

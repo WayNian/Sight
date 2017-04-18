@@ -15,8 +15,10 @@ import com.sight.waynian.sight.adapter.ZhihuAdapter;
 import com.sight.waynian.sight.base.BaseFragment;
 import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
 import com.sight.waynian.sight.http.HttpMethods;
+import com.sight.waynian.sight.uitils.DateFormatter;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import rx.Subscriber;
@@ -30,9 +32,16 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
 
     private RecyclerView contentList;
     private SwipeRefreshLayout swipeRefresh;
-    private List<ZhihuBean.StoriesBean> list;
+    private List<ZhihuBean.StoriesBean> list = new ArrayList<>();
+    private List<ZhihuBean.StoriesBean> allList;
 
     private boolean isLoaded = true;
+
+    private int mYear = Calendar.getInstance().get(Calendar.YEAR);
+    private int mMonth = Calendar.getInstance().get(Calendar.MONTH);
+    private int mDay = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+
+    private ZhihuAdapter zhihuAdapter;
 
     @Nullable
     @Override
@@ -59,6 +68,34 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
                 R.color.yellow
         );
         swipeRefresh.setOnRefreshListener(this);
+        contentList.setOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+
+                LinearLayoutManager manager = (LinearLayoutManager) recyclerView.getLayoutManager();
+                // 当不滚动时
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    // 获取最后一个完全显示的item position
+                    int lastVisibleItem = manager.findLastCompletelyVisibleItemPosition();
+                    int totalItemCount = manager.getItemCount();
+
+                    // 判断是否滚动到底部并且是向下滑动
+                    if (lastVisibleItem == (totalItemCount - 1)) {
+                        Calendar c = Calendar.getInstance();
+                        c.set(mYear, mMonth, --mDay);
+                        getHistoryNews(DateFormatter.ZhihuDailyDateFormat(c.getTimeInMillis()));
+                    }
+                }
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+//                lastVisibleItem = layoutManager.findLastVisibleItemPosition();
+            }
+        });
     }
 
     @Override
@@ -76,7 +113,7 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
     }
 
     private void getLatestNews() {
-        HttpMethods.getInstance().getTopMovie(new Subscriber<ZhihuBean>() {
+        HttpMethods.getInstance().getLatestNews(new Subscriber<ZhihuBean>() {
             @Override
             public void onCompleted() {
             }
@@ -88,14 +125,41 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
 
             @Override
             public void onNext(ZhihuBean zhihuBean) {
+                list.clear();
                 swipeRefresh.setRefreshing(false);
                 list = zhihuBean.getStories();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
                 contentList.setLayoutManager(linearLayoutManager);
-                ZhihuAdapter zhihuAdapter = new ZhihuAdapter(list,mContext);
+                zhihuAdapter = new ZhihuAdapter(list, mContext);
                 contentList.setAdapter(zhihuAdapter);
+                zhihuAdapter.notifyDataSetChanged();
             }
         });
+    }
+
+    private void getHistoryNews(String time) {
+        HttpMethods.getInstance().getHistoryNews(new Subscriber<ZhihuBean>() {
+            @Override
+            public void onCompleted() {
+            }
+
+            @Override
+            public void onError(Throwable e) {
+            }
+
+            @Override
+            public void onNext(ZhihuBean zhihuBean) {
+                for (ZhihuBean.StoriesBean item : zhihuBean.getStories()) {
+                    list.add(item);
+                }
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
+                contentList.setLayoutManager(linearLayoutManager);
+
+                zhihuAdapter = new ZhihuAdapter(list, mContext);
+                contentList.setAdapter(zhihuAdapter);
+                zhihuAdapter.notifyDataSetChanged();
+            }
+        }, time);
     }
 
     @Override
