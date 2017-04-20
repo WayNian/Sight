@@ -24,7 +24,7 @@ import java.util.List;
 public class ZhihuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<ZhihuBean.StoriesBean> list;
     private Context context;
-    private final LayoutInflater inflater;
+    private LayoutInflater inflater;
 
     private static final int TYPE_NORMAL = 0;
     private static final int TYPE_FOOTER = 1;

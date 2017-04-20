@@ -3,22 +3,17 @@ package com.sight.waynian.sight.fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.sight.waynian.sight.R;
+import com.sight.waynian.sight.adapter.Adapter;
 import com.sight.waynian.sight.base.BaseFragment;
 import com.sight.waynian.sight.fragment.read.GankFragment;
 import com.sight.waynian.sight.fragment.read.GuokrFragment;
 import com.sight.waynian.sight.fragment.read.ZhiHuFragment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by waynian on 2017/4/4.
@@ -50,20 +45,6 @@ public class ReadFragment extends BaseFragment {
         return rootView;
     }
 
-//    @Override
-//    protected View initView() {
-//        if (null != rootView) {
-//            ViewGroup parent = (ViewGroup) rootView.getParent();
-//            if (null != parent) {
-//                parent.removeView(rootView);
-//            }
-//        } else {
-//            rootView = View.inflate(mContext, R.layout.fragment_read, null);
-//            initUI();
-//        }
-//        return rootView;
-//    }
-
     private void initUI() {
         viewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         if (viewPager != null) {
@@ -72,8 +53,6 @@ public class ReadFragment extends BaseFragment {
         }
 
         final TabLayout tabLayout = (TabLayout) rootView.findViewById(R.id.tabs);
-//        tabLayout.setTabTextColors(R.color.tab_text_normal, R.color.tab_text_pressed);
-//        tabLayout.setSelectedTabIndicatorColor(ThemeUtils.getThemeColorStateList(mContext, R.color.theme_color_primary).getDefaultColor());
         tabLayout.setupWithViewPager(viewPager);
     }
 
@@ -93,35 +72,6 @@ public class ReadFragment extends BaseFragment {
 
         } else {
 
-        }
-    }
-
-    static class Adapter extends FragmentStatePagerAdapter {
-        private final List<Fragment> mFragments = new ArrayList<>();
-        private final List<String> mFragmentTitles = new ArrayList<>();
-
-        public Adapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragments.add(fragment);
-            mFragmentTitles.add(title);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragments.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragments.size();
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitles.get(position);
         }
     }
 

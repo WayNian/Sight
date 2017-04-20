@@ -129,6 +129,7 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
                 swipeRefresh.setRefreshing(false);
                 list = zhihuBean.getStories();
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
+                linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                 contentList.setLayoutManager(linearLayoutManager);
                 zhihuAdapter = new ZhihuAdapter(list, mContext);
                 contentList.setAdapter(zhihuAdapter);
@@ -153,8 +154,8 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
                     list.add(item);
                 }
                 LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext);
+                linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                 contentList.setLayoutManager(linearLayoutManager);
-
                 zhihuAdapter = new ZhihuAdapter(list, mContext);
                 contentList.setAdapter(zhihuAdapter);
                 zhihuAdapter.notifyDataSetChanged();
