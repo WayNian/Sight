@@ -59,9 +59,9 @@ public class ReadFragment extends BaseFragment {
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getChildFragmentManager());
         adapter.addFragment(new ZhiHuFragment(), "知乎");
-        adapter.addFragment(new GuokrFragment(), "果壳");
-        adapter.addFragment(new GankFragment(), "豆瓣");
-        adapter.addFragment(new GankFragment(), "干货");
+        adapter.addFragment(new ZhiHuFragment(), "果壳");
+        adapter.addFragment(new ZhiHuFragment(), "豆瓣");
+        adapter.addFragment(new ZhiHuFragment(), "干货");
         viewPager.setAdapter(adapter);
     }
 

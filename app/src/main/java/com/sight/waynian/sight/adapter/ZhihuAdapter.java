@@ -52,12 +52,14 @@ public class ZhihuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
             ((NormalViewHolder) holder).tvTitle.setText(list.get(position).getTitle());
             final String id = list.get(position).getId() + "";
+            final String title = list.get(position).getTitle();
             Glide.with(context).load(list.get(position).getImages().get(0)).into(((NormalViewHolder) holder).ivZhihu);
             ((NormalViewHolder) holder).cvNewsList.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     context.startActivity(new Intent(context, WebActivity.class)
-                            .putExtra("id", id));
+                            .putExtra("id", id)
+                            .putExtra("title", title));
                 }
             });
         }

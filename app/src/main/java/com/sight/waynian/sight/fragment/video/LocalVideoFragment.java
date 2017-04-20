@@ -24,7 +24,7 @@ import android.widget.TextView;
 import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.adapter.VideoPagerAdapter;
 import com.sight.waynian.sight.base.BaseFragment;
-import com.sight.waynian.sight.bean.zhihu.video.MediaItem;
+import com.sight.waynian.sight.bean.zhihuw.video.MediaItem;
 import com.sight.waynian.sight.ui.VideoPlayerActivity;
 
 import java.util.ArrayList;

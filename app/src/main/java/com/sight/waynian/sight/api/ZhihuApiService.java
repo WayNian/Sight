@@ -1,6 +1,6 @@
 package com.sight.waynian.sight.api;
 
-import com.sight.waynian.sight.bean.zhihu.News;
+import com.sight.waynian.sight.bean.zhihuw.News;
 import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
 import com.sight.waynian.sight.bean.zhihu.SplashImage;
 

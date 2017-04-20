@@ -15,7 +15,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.sight.waynian.sight.R;
-import com.sight.waynian.sight.bean.zhihu.News;
+import com.sight.waynian.sight.bean.zhihuw.News;
 import com.sight.waynian.sight.http.HttpMethods;
 
 import butterknife.ButterKnife;
@@ -30,7 +30,11 @@ public class WebActivity extends AppCompatActivity {
     Toolbar toolbar;
     CollapsingToolbarLayout toolbarLayout;
 
+    /**
+     * 知乎传递的值
+     */
     private String id;
+    private String title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,7 @@ public class WebActivity extends AppCompatActivity {
         setContentView(R.layout.activity_web);
         ButterKnife.bind(this);
         id = getIntent().getStringExtra("id");
+        title = getIntent().getStringExtra("title");
         initView();
         getDetailNews();
     }
@@ -90,6 +95,7 @@ public class WebActivity extends AppCompatActivity {
                 getDetailNews();
             }
         });
+        toolbarLayout.setTitle(title);
         setSupportActionBar(toolbar);
     }
 
@@ -112,7 +118,6 @@ public class WebActivity extends AppCompatActivity {
         String html = head + news.getBody().replace(img, " ");
         webView.loadDataWithBaseURL(null, html, "text/html", "utf-8", null);
         webView.setScrollbarFadingEnabled(true);
-        toolbarLayout.setTitle(news.getTitle());
         toolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBar);
         toolbarLayout.setCollapsedTitleTextAppearance(R.style.CollapsedAppBar);
         toolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppBarPlus1);

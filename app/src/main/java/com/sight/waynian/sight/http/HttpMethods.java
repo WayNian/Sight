@@ -2,7 +2,7 @@ package com.sight.waynian.sight.http;
 
 import com.elvishew.xlog.XLog;
 import com.sight.waynian.sight.api.ZhihuApiService;
-import com.sight.waynian.sight.bean.zhihu.News;
+import com.sight.waynian.sight.bean.zhihuw.News;
 import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
 
 import java.util.concurrent.TimeUnit;

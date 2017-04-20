@@ -82,9 +82,14 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
 
                     // 判断是否滚动到底部并且是向下滑动
                     if (lastVisibleItem == (totalItemCount - 1)) {
-                        Calendar c = Calendar.getInstance();
+                        final Calendar c = Calendar.getInstance();
                         c.set(mYear, mMonth, --mDay);
-                        getHistoryNews(DateFormatter.ZhihuDailyDateFormat(c.getTimeInMillis()));
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                getHistoryNews(DateFormatter.ZhihuDailyDateFormat(c.getTimeInMillis()));
+                            }
+                        }, 1200);
                     }
                 }
                 super.onScrollStateChanged(recyclerView, newState);
@@ -158,7 +163,10 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
                 contentList.setLayoutManager(linearLayoutManager);
                 zhihuAdapter = new ZhihuAdapter(list, mContext);
                 contentList.setAdapter(zhihuAdapter);
-                zhihuAdapter.notifyDataSetChanged();
+//                zhihuAdapter.notifyItemRangeChanged(zhihuAdapter.getItemCount() - 1, zhihuAdapter.getItemCount());
+//                zhihuAdapter.notifyItemChanged(zhihuBean.getStories().size());
+//                zhihuAdapter.notifyDataSetChanged();
+//                contentList.scrollToPosition(zhihuAdapter.getItemCount() - zhihuBean.getStories().size());
             }
         }, time);
     }
