@@ -15,7 +15,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.sight.waynian.sight.R;
-import com.sight.waynian.sight.bean.zhihuw.News;
+import com.sight.waynian.sight.bean.zhihu.News;
 import com.sight.waynian.sight.http.HttpMethods;
 
 import butterknife.ButterKnife;

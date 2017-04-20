@@ -1,4 +1,4 @@
-package com.sight.waynian.sight.bean.zhihuw.video;
+package com.sight.waynian.sight.bean.video;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by waynian on 2017/4/20.
  */
 
-public class MediaItem implements Serializable{
+public class MediaItem implements Serializable {
     private String name;
 
     private long duration;
@@ -90,3 +90,4 @@ public class MediaItem implements Serializable{
                 '}';
     }
 }
+

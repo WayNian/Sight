@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.elvishew.xlog.XLog;
 import com.sight.waynian.sight.R;
-import com.sight.waynian.sight.bean.zhihuw.video.MediaItem;
+import com.sight.waynian.sight.bean.video.MediaItem;
 import com.sight.waynian.sight.uitils.Utils;
 
 import java.util.List;

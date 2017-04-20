@@ -48,4 +48,15 @@ public class DateFormatter {
         return sDate;
     }
 
+    /**
+     * 得到系统时间
+     *
+     * @return
+     */
+    public static String getSysteTime() {
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        return format.format(new Date());
+    }
+
+
 }
