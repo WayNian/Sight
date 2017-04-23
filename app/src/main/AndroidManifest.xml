@@ -2,24 +2,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sight.waynian.sight">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <!--获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->
+    <!-- 获取手机录音机使用权限，听写、识别、语义理解需要用到此权限 -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <!--读取网络信息状态 -->
+    <!-- 读取网络信息状态 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <!--获取当前wifi状态 -->
+    <!-- 获取当前wifi状态 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <!--允许程序改变网络连接状态 -->
+    <!-- 允许程序改变网络连接状态 -->
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
-    <!--读取手机信息权限 -->
+    <!-- 读取手机信息权限 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--读取联系人权限，上传联系人需要用到此权限 -->
+    <!-- 读取联系人权限，上传联系人需要用到此权限 -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <!--外存储写权限， 构建语法需要用到此权限 -->
+    <!-- 外存储写权限， 构建语法需要用到此权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <!--外存储读权限，构建语法需要用到此权限 -->
+    <!-- 外存储读权限，构建语法需要用到此权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!--配置权限，用来记录应用配置信息 -->
+    <!-- 配置权限，用来记录应用配置信息 -->
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
@@ -62,6 +63,7 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:mimeType="video/*" />
@@ -79,7 +81,6 @@
                 <data android:mimeType="video/3gpp" />
                 <data android:mimeType="video/3gpp2" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -220,7 +221,6 @@
                 <data android:pathPattern=".*\\.m4v" />
                 <data android:pathPattern=".*\\.mp4" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -249,11 +249,14 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="video/*" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:scheme="file" />
@@ -261,9 +264,17 @@
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".service.MusicPlayerService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".service.AudioPlayerActivity"></activity>
     </application>
 
 </manifest>

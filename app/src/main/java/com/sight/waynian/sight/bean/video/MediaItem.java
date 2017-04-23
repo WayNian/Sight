@@ -21,6 +21,16 @@ public class MediaItem implements Serializable {
 
     private String imageUrl;
 
+    private String album;
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
+    }
+
     public String getName() {
         return name;
     }

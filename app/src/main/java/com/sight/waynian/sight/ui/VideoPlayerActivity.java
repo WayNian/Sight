@@ -10,11 +10,11 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.GestureDetector;
 import android.view.KeyEvent;
@@ -30,16 +30,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sight.waynian.sight.R;
-import com.sight.waynian.sight.uitils.Utils;
-
 import com.sight.waynian.sight.bean.video.MediaItem;
+import com.sight.waynian.sight.uitils.Utils;
 import com.sight.waynian.sight.view.VideoView;
 
 import java.util.ArrayList;
 
 import static com.sight.waynian.sight.uitils.DateFormatter.getSysteTime;
 
-public class VideoPlayerActivity extends AppCompatActivity implements View.OnClickListener{
+public class VideoPlayerActivity extends AppCompatActivity implements View.OnClickListener {
     private boolean isUseSystem = true;
     /**
      * 视频进度的更新
@@ -82,7 +81,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     private Button btnVideoSiwchScreen;
     private TextView tv_buffer_netspeed;
     private LinearLayout ll_buffer;
-    private TextView tv_laoding_netspeed;
+//    private TextView tv_laoding_netspeed;
     private LinearLayout ll_loading;
 
     private Utils utils;
@@ -170,8 +169,8 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
                     //1.得到网络速度
                     String netSpeed = utils.getNetSpeed(VideoPlayerActivity.this);
                     //显示网络速
-                    tv_laoding_netspeed.setText("玩命加载中..."+netSpeed);
-                    tv_buffer_netspeed.setText("缓存中..."+netSpeed);
+//                    tv_laoding_netspeed.setText("玩命加载中..." + netSpeed);
+                    tv_buffer_netspeed.setText("缓存中..." + netSpeed);
                     //2.每两秒更新一次
                     handler.removeMessages(SHOW_SPEED);
                     handler.sendEmptyMessageDelayed(SHOW_SPEED, 2000);
@@ -202,7 +201,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
                     //监听卡
                     if (!isUseSystem) {
 
-                        if(videoview.isPlaying()){
+                        if (videoview.isPlaying()) {
                             int buffer = currentPosition - precurrentPosition;
                             if (buffer < 500) {
                                 //视频卡了
@@ -211,7 +210,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
                                 //视频不卡了
                                 ll_buffer.setVisibility(View.GONE);
                             }
-                        }else{
+                        } else {
                             ll_buffer.setVisibility(View.GONE);
                         }
                     }
@@ -230,8 +229,8 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video_player);
-        initUI();
         initData();
+        initUI();
         setListener();
         getData();
         setData();
@@ -242,9 +241,9 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
         tvName = (TextView) findViewById(R.id.tv_name);
         ivBattery = (ImageView) findViewById(R.id.iv_battery);
         tvSystemTime = (TextView) findViewById(R.id.tv_system_time);
-        btnVoice = (Button) findViewById(R.id.btn_voice);
+        btnVoice = (Button) findViewById(R.id.bt_voice);
         seekbarVoice = (SeekBar) findViewById(R.id.seekbar_voice);
-        btnSwichPlayer = (Button) findViewById(R.id.btn_swich_player);
+        btnSwichPlayer = (Button) findViewById(R.id.bt_switch);
         llBottom = (LinearLayout) findViewById(R.id.ll_bottom);
         tvCurrentTime = (TextView) findViewById(R.id.tv_current_time);
         seekbarVideo = (SeekBar) findViewById(R.id.seekbar_video);
@@ -258,7 +257,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
         media_controller = (RelativeLayout) findViewById(R.id.media_controller);
         tv_buffer_netspeed = (TextView) findViewById(R.id.tv_buffer_netspeed);
         ll_buffer = (LinearLayout) findViewById(R.id.ll_buffer);
-        tv_laoding_netspeed = (TextView) findViewById(R.id.tv_laoding_netspeed);
+//        tv_laoding_netspeed = (TextView) findViewById(R.id.tv_laoding_netspeed);
         ll_loading = (LinearLayout) findViewById(R.id.ll_loading);
 
         btnVoice.setOnClickListener(this);
@@ -283,12 +282,11 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         if (v == btnVoice) {
-            isMute = !isMute;
-            // Handle clicks for btnVoice
-            updataVoice(currentVoice, isMute);
+//            isMute = !isMute;
+//            // Handle clicks for btnVoice
+//            updataVoice(currentVoice, isMute);
         } else if (v == btnSwichPlayer) {
             // Handle clicks for btnSwichPlayer
-            showSwichPlayerDialog();
         } else if (v == btnExit) {
             // Handle clicks for btnExit
             finish();
@@ -310,18 +308,6 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
         handler.sendEmptyMessageDelayed(HIDE_MEDIACONTROLLER, 4000);
     }
 
-    private void showSwichPlayerDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("系统播放器提醒您");
-        builder.setMessage("当您播放视频，有声音没有画面的时候，请切换万能播放器播放");
-        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
-        });
-        builder.setNegativeButton("取消",null);
-        builder.show();
-    }
 
     private void startAndPause() {
         if (videoview.isPlaying()) {
@@ -494,7 +480,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     }
 
 
-    class MySimpleOnGestureListener extends  GestureDetector.SimpleOnGestureListener{
+    class MySimpleOnGestureListener extends GestureDetector.SimpleOnGestureListener {
         @Override
         public void onLongPress(MotionEvent e) {
             super.onLongPress(e);
@@ -658,7 +644,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
                 } else {
                     isMute = true;
                 }
-                updataVoice(progress, isMute);
+                updateVoice(progress, isMute);
             }
 
         }
@@ -680,7 +666,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
      *
      * @param progress
      */
-    private void updataVoice(int progress, boolean isMute) {
+    private void updateVoice(int progress, boolean isMute) {
         if (isMute) {
             am.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0);
             seekbarVoice.setProgress(0);
@@ -835,7 +821,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
                 float endX = event.getX();
                 float distanceY = startY - endY;
 
-                if(endX < screenWidth/2){
+                if (endX < screenWidth / 2) {
                     //左边屏幕-调节亮度
                     final double FLING_MIN_DISTANCE = 0.5;
                     final double FLING_MIN_VELOCITY = 0.5;
@@ -849,7 +835,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
 //                        Log.e(TAG, "down");
                         setBrightness(-20);
                     }
-                }else{
+                } else {
                     //右边屏幕-调节声音
                     //改变声音 = （滑动屏幕的距离： 总距离）*音量最大值
                     float delta = (distanceY / touchRang) * maxVoice;
@@ -857,7 +843,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
                     int voice = (int) Math.min(Math.max(mVol + delta, 0), maxVoice);
                     if (delta != 0) {
                         isMute = false;
-                        updataVoice(voice, isMute);
+                        updateVoice(voice, isMute);
                     }
 
                 }
@@ -873,6 +859,7 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     }
 
     private Vibrator vibrator;
+
     /*
      *
      * 设置屏幕亮度 lp = 0 全暗 ，lp= -1,根据系统设置， lp = 1; 最亮
@@ -886,12 +873,12 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
         if (lp.screenBrightness > 1) {
             lp.screenBrightness = 1;
             vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-            long[] pattern = { 10, 200 }; // OFF/ON/OFF/ON...
+            long[] pattern = {10, 200}; // OFF/ON/OFF/ON...
             vibrator.vibrate(pattern, -1);
         } else if (lp.screenBrightness < 0.2) {
             lp.screenBrightness = (float) 0.2;
             vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
-            long[] pattern = { 10, 200 }; // OFF/ON/OFF/ON...
+            long[] pattern = {10, 200}; // OFF/ON/OFF/ON...
             vibrator.vibrate(pattern, -1);
         }
 //        Log.e(TAG, "lp.screenBrightness= " + lp.screenBrightness);
@@ -927,13 +914,13 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
             currentVoice--;
-            updataVoice(currentVoice, false);
+            updateVoice(currentVoice, false);
             handler.removeMessages(HIDE_MEDIACONTROLLER);
             handler.sendEmptyMessageDelayed(HIDE_MEDIACONTROLLER, 4000);
             return true;
         } else if (keyCode == KeyEvent.KEYCODE_VOLUME_UP) {
             currentVoice++;
-            updataVoice(currentVoice, false);
+            updateVoice(currentVoice, false);
             handler.removeMessages(HIDE_MEDIACONTROLLER);
             handler.sendEmptyMessageDelayed(HIDE_MEDIACONTROLLER, 4000);
             return true;
