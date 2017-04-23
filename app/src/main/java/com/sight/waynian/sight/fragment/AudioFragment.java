@@ -3,6 +3,7 @@ package com.sight.waynian.sight.fragment;
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -25,6 +26,7 @@ import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.adapter.AudioPagerAdapter;
 import com.sight.waynian.sight.base.BaseFragment;
 import com.sight.waynian.sight.bean.video.MediaItem;
+import com.sight.waynian.sight.ui.AudioPlayerActivity;
 
 import java.util.ArrayList;
 
@@ -60,7 +62,9 @@ public class AudioFragment extends BaseFragment {
                 audioPagerAdapter.setOnItemClickListener(new AudioPagerAdapter.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        XLog.d(mediaItems.get(position).getImageUrl());
+                        Intent intent = new Intent(mContext,AudioPlayerActivity.class);
+                        intent.putExtra("position",position);
+                        mContext.startActivity(intent);
                     }
                 });
             } else {

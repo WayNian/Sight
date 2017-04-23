@@ -272,9 +272,14 @@
         <service
             android:name=".service.MusicPlayerService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.waynian.sight_OPENAUDIO" />
+            </intent-filter>
+        </service>
 
-        <activity android:name=".service.AudioPlayerActivity"></activity>
+        <activity android:name=".ui.AudioPlayerActivity"
+            android:launchMode="singleTask"/>
     </application>
 
 </manifest>

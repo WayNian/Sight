@@ -21,10 +21,15 @@ import android.widget.Toast;
 import com.sight.waynian.sight.IMusicPlayerService;
 import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.bean.video.MediaItem;
+import com.sight.waynian.sight.ui.AudioPlayerActivity;
 import com.sight.waynian.sight.uitils.CacheUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import static android.support.v4.app.NotificationCompat.FLAG_NO_CLEAR;
 
 public class MusicPlayerService extends Service {
     public static final String OPENAUDIO = "com.waynian.sight_OPENAUDIO";
@@ -120,85 +125,87 @@ public class MusicPlayerService extends Service {
 
 
     private IMusicPlayerService.Stub stub = new IMusicPlayerService.Stub() {
+        MusicPlayerService service = MusicPlayerService.this;
 
         @Override
         public void openAudio(int position) throws RemoteException {
-
+            service.openAudio(position);
         }
 
         @Override
         public void start() throws RemoteException {
+            service.start();
 
         }
 
         @Override
         public void pause() throws RemoteException {
-
+            service.pause();
         }
 
         @Override
         public void stop() throws RemoteException {
-
+            service.stop();
         }
 
         @Override
         public int getCurrentPosition() throws RemoteException {
-            return 0;
+            return service.getCurrentPosition();
         }
 
         @Override
         public int getDuration() throws RemoteException {
-            return 0;
+            return service.getDuration();
         }
 
         @Override
         public String getArtist() throws RemoteException {
-            return null;
+            return service.getArtist();
         }
 
         @Override
         public String getName() throws RemoteException {
-            return null;
+            return service.getName();
         }
 
         @Override
         public String getAudioPath() throws RemoteException {
-            return null;
+            return service.getAudioPath();
         }
 
         @Override
         public void next() throws RemoteException {
-
+            service.next();
         }
 
         @Override
         public void pre() throws RemoteException {
-
+            service.pre();
         }
 
         @Override
         public void setPlayMode(int playmode) throws RemoteException {
-
+            service.setPlayMode(playmode);
         }
 
         @Override
         public int getPlayMode() throws RemoteException {
-            return 0;
+            return service.getPlayMode();
         }
 
         @Override
         public boolean isPlaying() throws RemoteException {
-            return false;
+            return service.isPlaying();
         }
 
         @Override
         public void seekTo(int position) throws RemoteException {
-
+            mediaPlayer.seekTo(position);
         }
 
         @Override
         public int getAudioSessionId() throws RemoteException {
-            return 0;
+            return mediaPlayer.getAudioSessionId();
         }
     };
 
@@ -271,7 +278,7 @@ public class MusicPlayerService extends Service {
         public void onPrepared(MediaPlayer mp) {
             //通知Activity来获取信息--广播
 //            notifyChange(OPENAUDIO);
-//            EventBus.getDefault().post(mediaItem);
+            EventBus.getDefault().post(mediaItem);
             start();
         }
     }
@@ -309,6 +316,7 @@ public class MusicPlayerService extends Service {
                 .setContentText("正在播放:" + getName())
                 .setContentIntent(pendingIntent)
                 .build();
+        notification.flags |= FLAG_NO_CLEAR;
         manager.notify(1, notification);
     }
 
@@ -317,7 +325,7 @@ public class MusicPlayerService extends Service {
      */
     private void pause() {
         mediaPlayer.pause();
-        manager.cancel(1);
+//        manager.cancel(1);
     }
 
     /**
