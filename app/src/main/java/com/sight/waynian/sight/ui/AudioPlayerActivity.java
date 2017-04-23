@@ -415,6 +415,7 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
         }
         //2.EventBus取消注册
         EventBus.getDefault().unregister(this);
+        myReceiver.getDebugUnregister();
         super.onDestroy();
     }
 }
