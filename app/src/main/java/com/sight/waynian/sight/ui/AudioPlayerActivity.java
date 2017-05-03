@@ -123,14 +123,14 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
      * <p>
      * 加上@Subscribe以防报错：its super classes have no public methods with the @Subscribe annotation
      */
-    @Subscribe
+//    @Subscribe
     private void initData() {
         utils = new Utils();
         //注册广播
-        myReceiver = new MyReceiver();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(MusicPlayerService.OPENAUDIO);
-        registerReceiver(myReceiver, intentFilter);
+//        myReceiver = new MyReceiver();
+//        IntentFilter intentFilter = new IntentFilter();
+//        intentFilter.addAction(MusicPlayerService.OPENAUDIO);
+//        registerReceiver(myReceiver, intentFilter);
 
         //1.EventBus注册
         EventBus.getDefault().register(this);//this是当前类
@@ -415,7 +415,8 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
         }
         //2.EventBus取消注册
         EventBus.getDefault().unregister(this);
-        myReceiver.getDebugUnregister();
+//        myReceiver.getDebugUnregister();
         super.onDestroy();
+
     }
 }

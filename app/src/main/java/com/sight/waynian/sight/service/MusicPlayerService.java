@@ -325,7 +325,7 @@ public class MusicPlayerService extends Service {
      */
     private void pause() {
         mediaPlayer.pause();
-//        manager.cancel(1);
+        manager.cancel(1);
     }
 
     /**
