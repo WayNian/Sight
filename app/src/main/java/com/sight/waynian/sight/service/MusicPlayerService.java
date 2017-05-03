@@ -87,6 +87,7 @@ public class MusicPlayerService extends Service {
                         MediaStore.Audio.Media.SIZE,//视频的文件大小
                         MediaStore.Audio.Media.DATA,//视频的绝对地址
                         MediaStore.Audio.Media.ARTIST,//歌曲的演唱者
+                        MediaStore.Audio.Media.ALBUM_ID
                 };
                 Cursor cursor = resolver.query(uri, objs, null, null, null);
                 if (cursor != null) {
@@ -122,7 +123,6 @@ public class MusicPlayerService extends Service {
     public IBinder onBind(Intent intent) {
         return stub;
     }
-
 
     private IMusicPlayerService.Stub stub = new IMusicPlayerService.Stub() {
         MusicPlayerService service = MusicPlayerService.this;
@@ -234,7 +234,6 @@ public class MusicPlayerService extends Service {
                 mediaPlayer.setDataSource(mediaItem.getData());
                 mediaPlayer.prepareAsync();
 
-
                 if (playmode == MusicPlayerService.REPEAT_SINGLE) {
                     //单曲循环播放-不会触发播放完成的回调
                     mediaPlayer.setLooping(true);
@@ -242,8 +241,6 @@ public class MusicPlayerService extends Service {
                     //不循环播放
                     mediaPlayer.setLooping(false);
                 }
-
-
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -303,7 +300,6 @@ public class MusicPlayerService extends Service {
     private void start() {
 
         mediaPlayer.start();
-
         //当播放歌曲的时候，在状态显示正在播放，点击的时候，可以进入音乐播放页面
         manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         //最主要
@@ -311,7 +307,7 @@ public class MusicPlayerService extends Service {
         intent.putExtra("notification", true);//标识来自状态拦
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification = new Notification.Builder(this)
-                .setSmallIcon(R.drawable.notification_music_playing)
+                .setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle("321音乐")
                 .setContentText("正在播放:" + getName())
                 .setContentIntent(pendingIntent)
@@ -324,6 +320,9 @@ public class MusicPlayerService extends Service {
      * 播暂停音乐
      */
     private void pause() {
+        if (!isPlaying()) {
+            return;
+        }
         mediaPlayer.pause();
         manager.cancel(1);
     }
@@ -332,7 +331,6 @@ public class MusicPlayerService extends Service {
      * 停止
      */
     private void stop() {
-
     }
 
     /**
@@ -525,5 +523,4 @@ public class MusicPlayerService extends Service {
     private boolean isPlaying() {
         return mediaPlayer.isPlaying();
     }
-
 }

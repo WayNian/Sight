@@ -26,6 +26,7 @@ import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.adapter.AudioPagerAdapter;
 import com.sight.waynian.sight.base.BaseFragment;
 import com.sight.waynian.sight.bean.video.MediaItem;
+import com.sight.waynian.sight.service.MusicPlayerService;
 import com.sight.waynian.sight.ui.AudioPlayerActivity;
 
 import java.util.ArrayList;
@@ -145,6 +146,7 @@ public class AudioFragment extends BaseFragment {
                         MediaStore.Audio.Media.DATA,//视频的绝对地址
                         MediaStore.Audio.Media.ARTIST,//歌曲的演唱者
                         MediaStore.Audio.Media.ALBUM,//歌曲的演唱者
+                        MediaStore.Audio.Media.ALBUM_ID
 
                 };
                 Cursor cursor = resolver.query(uri, objs, null, null, null);

@@ -23,6 +23,16 @@ public class MediaItem implements Serializable {
 
     private String album;
 
+    private String coverPath;
+
+    public String getCoverPath() {
+        return coverPath;
+    }
+
+    public void setCoverPath(String coverPath) {
+        this.coverPath = coverPath;
+    }
+
     public String getAlbum() {
         return album;
     }
@@ -97,6 +107,8 @@ public class MediaItem implements Serializable {
                 ", artist='" + artist + '\'' +
                 ", desc='" + desc + '\'' +
                 ", imageUrl='" + imageUrl + '\'' +
+                ", album='" + album + '\'' +
+                ", coverPath='" + coverPath + '\'' +
                 '}';
     }
 }

@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
@@ -70,19 +69,6 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
             super.handleMessage(msg);
             switch (msg.what) {
                 case SHOW_LYRIC://显示歌词
-//                    //1.得到当前的进度
-//                    try {
-//                        int currentPosition = service.getCurrentPosition();
-//
-//                        //2.把进度传入ShowLyricView控件，并且计算该高亮哪一句
-//
-//                        showLyricView.setshowNextLyric(currentPosition);
-//                        //3.实时的发消息
-//                        handler.removeMessages(SHOW_LYRIC);
-//                        handler.sendEmptyMessage(SHOW_LYRIC);
-//                    } catch (RemoteException e) {
-//                        e.printStackTrace();
-//                    }
 
                     break;
                 case PROGRESS:
@@ -126,13 +112,6 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
 //    @Subscribe
     private void initData() {
         utils = new Utils();
-        //注册广播
-//        myReceiver = new MyReceiver();
-//        IntentFilter intentFilter = new IntentFilter();
-//        intentFilter.addAction(MusicPlayerService.OPENAUDIO);
-//        registerReceiver(myReceiver, intentFilter);
-
-        //1.EventBus注册
         EventBus.getDefault().register(this);//this是当前类
     }
 
@@ -173,7 +152,6 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
                     e.printStackTrace();
                 }
             }
-
         }
 
         @Override
@@ -234,18 +212,15 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-
     class MyReceiver extends BroadcastReceiver {
-
         @Override
         public void onReceive(Context context, Intent intent) {
-
             showData(null);
         }
     }
 
     //3.订阅方法
-    @Subscribe(threadMode = ThreadMode.MAIN,sticky = false,priority = 0)
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = false, priority = 0)
     public void showData(MediaItem mediaItem) {
         //发消息开始歌词同步
         showViewData();
@@ -264,7 +239,6 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
             } else {
                 playmode = MusicPlayerService.REPEAT_NORMAL;
             }
-
             //保持
             service.setPlayMode(playmode);
 
@@ -347,7 +321,6 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
                         //从状态栏
                         showViewData();
                     }
-
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
