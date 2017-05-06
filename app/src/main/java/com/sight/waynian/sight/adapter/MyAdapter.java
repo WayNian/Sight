@@ -18,23 +18,22 @@ import com.sight.waynian.sight.ui.WebActivity;
 import java.util.List;
 
 /**
- * Created by waynian on 2017/4/17.
+ * Created by jianghejie on 15/11/26.
  */
-
-public class ZhihuAdapter extends RecyclerView.Adapter<ZhihuAdapter.ViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<ZhihuBean.StoriesBean> list = null;
     private Context context;
 
-    public ZhihuAdapter(Context context, List<ZhihuBean.StoriesBean> list) {
+    public MyAdapter(Context context, List<ZhihuBean.StoriesBean> list) {
         this.list = list;
         this.context = context;
     }
 
     //创建新View，被LayoutManager所调用
     @Override
-    public ZhihuAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, viewGroup, false);
-        return new ZhihuAdapter.ViewHolder(view);
+        return new ViewHolder(view);
     }
 
     //将数据与界面进行绑定的操作
