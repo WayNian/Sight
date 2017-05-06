@@ -1,9 +1,15 @@
 package com.sight.waynian.sight.http;
 
 import com.elvishew.xlog.XLog;
+import com.sight.waynian.sight.api.GankApiService;
 import com.sight.waynian.sight.api.ZhihuApiService;
+import com.sight.waynian.sight.bean.gank.GankData;
+import com.sight.waynian.sight.bean.gank.Meizhi;
+import com.sight.waynian.sight.bean.gank.Video;
 import com.sight.waynian.sight.bean.zhihu.News;
+import com.sight.waynian.sight.bean.gank.Data;
 import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
+import com.sight.waynian.sight.constants.UrlAddress;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,22 +27,21 @@ import rx.schedulers.Schedulers;
  */
 
 public class HttpMethods {
-    private static final String ZHIHU_BASE_URL = "http://news-at.zhihu.com/api/4/";
 
     private static final int DEFAULT_TIMEOUT = 5;
 
-    private Retrofit retrofit;
     private ZhihuApiService zhihuApiService;
 
+    private GankApiService gankApiService;
 
     private OkHttpClient getOkHttpClient() {
         //日志显示级别
-        HttpLoggingInterceptor.Level level= HttpLoggingInterceptor.Level.BODY;
+        HttpLoggingInterceptor.Level level = HttpLoggingInterceptor.Level.BODY;
         //新建log拦截器
-        HttpLoggingInterceptor loggingInterceptor=new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor(new HttpLoggingInterceptor.Logger() {
             @Override
             public void log(String message) {
-                XLog.d("OkHttp====Message:"+message);
+                XLog.d("OkHttp====Message:" + message);
             }
         });
         loggingInterceptor.setLevel(level);
@@ -54,15 +59,26 @@ public class HttpMethods {
         OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
         httpClientBuilder.connectTimeout(DEFAULT_TIMEOUT, TimeUnit.SECONDS);
 
-        retrofit = new Retrofit.Builder()
+        Retrofit zhihuRetrofit = new Retrofit.Builder()
                 .client(httpClientBuilder.build())
                 .client(getOkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl(ZHIHU_BASE_URL)
+                .baseUrl(UrlAddress.ZHIHU_BASE_URL)
                 .build();
 
-        zhihuApiService = retrofit.create(ZhihuApiService.class);
+        zhihuApiService = zhihuRetrofit.create(ZhihuApiService.class);
+
+        //好奇心日报
+        Retrofit gankRetrofit = new Retrofit.Builder()
+                .client(httpClientBuilder.build())
+                .client(getOkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .baseUrl(UrlAddress.GANK_BASE_URL)
+                .build();
+
+        gankApiService = gankRetrofit.create(GankApiService.class);
     }
 
     //再访问HttpMethods时创建单例
@@ -74,8 +90,11 @@ public class HttpMethods {
         return SingletonHolder.INSTANCE;
     }
 
+    //**********************************************知乎******************************************
+
     /**
      * 获取知乎最新的信息
+     *
      * @param subscriber 由调用者传过来的观察者对象
      */
     public void getLatestNews(Subscriber<ZhihuBean> subscriber) {
@@ -88,6 +107,7 @@ public class HttpMethods {
 
     /**
      * 获取知乎详情
+     *
      * @param subscriber
      * @param id
      */
@@ -100,7 +120,8 @@ public class HttpMethods {
     }
 
     /**
-     * 获取知乎详情
+     * 获取知乎历史信息
+     *
      * @param subscriber
      * @param time
      */
@@ -111,4 +132,46 @@ public class HttpMethods {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(subscriber);
     }
+
+    //**************************************好奇心**************************************************
+
+    /**
+     * 获取干货集中营最新的信息
+     *
+     * @param subscriber 由调用者传过来的观察者对象
+     */
+    public void getGankLatestNews(Subscriber<Meizhi> subscriber, int page) {
+        gankApiService.getMeizhiData(page)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    public void getGankContent(Subscriber<Data> subscriber, int page) {
+        gankApiService.getContentData(page)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    public void getGankLatestVideo(Subscriber<Video> subscriber, int page) {
+        gankApiService.getVideoData(page)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+
+    public void getGankDetial(Subscriber<GankData> subscriber, int year, int month, int day) {
+        gankApiService.getGankData(year, month, day)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+
 }

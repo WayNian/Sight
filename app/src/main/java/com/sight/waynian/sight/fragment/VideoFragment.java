@@ -11,8 +11,6 @@ import android.view.ViewGroup;
 import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.adapter.Adapter;
 import com.sight.waynian.sight.base.BaseFragment;
-import com.sight.waynian.sight.fragment.read.GankFragment;
-import com.sight.waynian.sight.fragment.read.GuokrFragment;
 import com.sight.waynian.sight.fragment.read.ZhiHuFragment;
 import com.sight.waynian.sight.fragment.video.LocalVideoFragment;
 

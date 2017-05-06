@@ -10,49 +10,45 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.sight.waynian.sight.R;
-import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
-import com.sight.waynian.sight.ui.WebActivity;
+import com.sight.waynian.sight.bean.gank.Data;
+import com.sight.waynian.sight.ui.GankActivity;
 
 import java.util.List;
 
 /**
- * Created by jianghejie on 15/11/26.
+ * Created by waynian on 2017/4/17.
  */
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
-    private List<ZhihuBean.StoriesBean> list = null;
+
+public class GankAdapter extends RecyclerView.Adapter<GankAdapter.ViewHolder> {
+    private List<Data.ResultsBean> list = null;
     private Context context;
 
-    public MyAdapter(Context context, List<ZhihuBean.StoriesBean> list) {
+    public GankAdapter(Context context, List<Data.ResultsBean> list) {
         this.list = list;
         this.context = context;
     }
 
     //创建新View，被LayoutManager所调用
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public GankAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, viewGroup, false);
-        return new ViewHolder(view);
+        return new GankAdapter.ViewHolder(view);
     }
 
     //将数据与界面进行绑定的操作
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         (holder).tvTitle.setText(list.get(position).getTitle());
-        final String id = list.get(position).getId() + "";
-        final String title = list.get(position).getTitle();
-        Glide.with(context).load(list.get(position).getImages().get(0)).into((holder).ivZhihu);
         (holder).cvNewsList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, WebActivity.class)
-                        .putExtra("id", id)
-                        .putExtra("title", title));
+                Intent intent = GankActivity.newIntent(context, list.get(position).getPublishedAt().getTime());
+                context.startActivity(intent);
             }
         });
+
     }
 
     //获取数据的数量

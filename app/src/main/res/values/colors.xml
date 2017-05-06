@@ -23,6 +23,17 @@
     <!--tab文字-->
     <color name="tab_text_pressed">#98C9F4</color>
 
+    <!--Text-->
+    <color name="textColor">#424242</color>
+
+    <!--gank-->
+    <color name="android">#1F8AFF</color>
+    <color name="ios">#F05D5E</color>
+    <color name="休息视频">#FFD034</color>
+    <color name="前端">#28B78D</color>
+    <color name="拓展资源">#F16745</color>
+    <color name="瞎推荐">#A199E9</color>
+
     <color name="gery">#FAFAFA</color>
     <color name="darkgery">#797979</color>
     <color name="trangery">#512e2e2e</color>

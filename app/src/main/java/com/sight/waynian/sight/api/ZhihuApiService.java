@@ -14,9 +14,6 @@ import rx.Observable;
 
 public interface ZhihuApiService {
 
-    @GET("start-image/1080*1920")
-    Observable<SplashImage> getSplashImage();
-
     @GET("news/latest")
     Observable<ZhihuBean> getLatestNews();
 
