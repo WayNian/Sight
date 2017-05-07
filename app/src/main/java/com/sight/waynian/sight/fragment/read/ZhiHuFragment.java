@@ -30,7 +30,7 @@ import rx.Subscriber;
 
 public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    private static final String TAG = HqxFragment.class.getCanonicalName();
+    private static final String TAG = DoubanFragment.class.getCanonicalName();
     private XRecyclerView mRecyclerView;
     private List<ZhihuBean.StoriesBean> listData;
 

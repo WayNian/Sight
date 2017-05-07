@@ -1,13 +1,15 @@
 package com.sight.waynian.sight.http;
 
 import com.elvishew.xlog.XLog;
+import com.sight.waynian.sight.api.DoubanApiService;
 import com.sight.waynian.sight.api.GankApiService;
 import com.sight.waynian.sight.api.ZhihuApiService;
+import com.sight.waynian.sight.bean.douban.DoubanListBean;
+import com.sight.waynian.sight.bean.gank.Data;
 import com.sight.waynian.sight.bean.gank.GankData;
 import com.sight.waynian.sight.bean.gank.Meizhi;
 import com.sight.waynian.sight.bean.gank.Video;
 import com.sight.waynian.sight.bean.zhihu.News;
-import com.sight.waynian.sight.bean.gank.Data;
 import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
 import com.sight.waynian.sight.constants.UrlAddress;
 
@@ -33,6 +35,8 @@ public class HttpMethods {
     private ZhihuApiService zhihuApiService;
 
     private GankApiService gankApiService;
+
+    private DoubanApiService doubanApiService;
 
     private OkHttpClient getOkHttpClient() {
         //日志显示级别
@@ -69,7 +73,7 @@ public class HttpMethods {
 
         zhihuApiService = zhihuRetrofit.create(ZhihuApiService.class);
 
-        //好奇心日报
+        //干货集中营
         Retrofit gankRetrofit = new Retrofit.Builder()
                 .client(httpClientBuilder.build())
                 .client(getOkHttpClient())
@@ -79,6 +83,17 @@ public class HttpMethods {
                 .build();
 
         gankApiService = gankRetrofit.create(GankApiService.class);
+
+        //豆瓣一刻
+        Retrofit doubanRetrofit = new Retrofit.Builder()
+                .client(httpClientBuilder.build())
+                .client(getOkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .baseUrl(UrlAddress.DOUBAN_MOMENT)
+                .build();
+
+        doubanApiService = doubanRetrofit.create(DoubanApiService.class);
     }
 
     //再访问HttpMethods时创建单例
@@ -90,7 +105,7 @@ public class HttpMethods {
         return SingletonHolder.INSTANCE;
     }
 
-    //**********************************************知乎******************************************
+    //*******************************************知乎***********************************************
 
     /**
      * 获取知乎最新的信息
@@ -133,7 +148,7 @@ public class HttpMethods {
                 .subscribe(subscriber);
     }
 
-    //**************************************好奇心**************************************************
+    //**************************************干货集中营**********************************************
 
     /**
      * 获取干货集中营最新的信息
@@ -167,6 +182,15 @@ public class HttpMethods {
 
     public void getGankDetial(Subscriber<GankData> subscriber, int year, int month, int day) {
         gankApiService.getGankData(year, month, day)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
+
+    //**************************************d豆瓣一刻***********************************************
+    public void getDoubanList(Subscriber<DoubanListBean> subscriber, String date) {
+        doubanApiService.getDoubanList(date)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

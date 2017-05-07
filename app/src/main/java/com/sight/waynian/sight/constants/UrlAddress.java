@@ -11,11 +11,17 @@ public class UrlAddress {
     // Guokr handpick articles. make complete url by combining params
     public static final String GUOKR_ARTICLES = "http://apis.guokr.com/handpick/";
 
-    // 获取果壳文章的具体信息 V1
-    // specific information of guokr post V1
-    public static final String GUOKR_ARTICLE_LINK_V1 = "http://jingxuan.guokr.com/pick/";
-
     //干货集中营
     public static final String GANK_BASE_URL = "http://gank.io/api/";
+
+    // 豆瓣一刻
+    // 根据日期查询消息列表
+    // eg:https://moment.douban.com/api/stream/date/2016-08-11
+    public static final String DOUBAN_MOMENT = "https://moment.douban.com/api/stream/date/";
+
+    // 获取文章具体内容
+    // eg:https://moment.douban.com/api/post/100484
+    public static final String DOUBAN_ARTICLE_DETAIL = "https://moment.douban.com/api/post/";
+
 
 }

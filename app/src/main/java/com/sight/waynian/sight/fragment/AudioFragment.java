@@ -133,9 +133,6 @@ public class AudioFragment extends BaseFragment {
             @Override
             public void run() {
                 super.run();
-
-//                isGrantExternalRW((Activity) context);
-//                SystemClock.sleep(2000);
                 mediaItems = new ArrayList<>();
                 ContentResolver resolver = mContext.getContentResolver();
                 Uri uri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;

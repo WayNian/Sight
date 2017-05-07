@@ -10,7 +10,7 @@ import com.elvishew.xlog.XLog;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.adapter.GankAdapter;
-import com.sight.waynian.sight.api.GuokrApiService;
+import com.sight.waynian.sight.api.DoubanApiService;
 import com.sight.waynian.sight.base.BaseFragment;
 
 import retrofit2.Retrofit;
@@ -19,8 +19,7 @@ import retrofit2.Retrofit;
  * Created by waynian on 2017/4/4.
  */
 
-public class HqxFragment extends BaseFragment {
-    private static final String TAG = HqxFragment.class.getCanonicalName();
+public class DoubanFragment extends BaseFragment {
     private static final long DEFAULT_TIMEOUT = 5;
     private XRecyclerView mRecyclerView;
     private GankAdapter gankAdapter;
@@ -28,7 +27,7 @@ public class HqxFragment extends BaseFragment {
 
     private Retrofit retrofit;
 
-    private GuokrApiService guokrApiService;
+    private DoubanApiService doubanApiService;
 
     @Nullable
     @Override
@@ -39,7 +38,7 @@ public class HqxFragment extends BaseFragment {
                 parent.removeView(rootView);
             }
         } else {
-            rootView = View.inflate(mContext, R.layout.fragment_guokr, null);
+            rootView = View.inflate(mContext, R.layout.fragment_douban, null);
             initUI();
         }
         return rootView;

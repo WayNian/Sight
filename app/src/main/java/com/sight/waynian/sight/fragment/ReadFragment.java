@@ -12,7 +12,6 @@ import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.adapter.Adapter;
 import com.sight.waynian.sight.base.BaseFragment;
 import com.sight.waynian.sight.fragment.read.GankFragment;
-import com.sight.waynian.sight.fragment.read.HqxFragment;
 import com.sight.waynian.sight.fragment.read.ZhiHuFragment;
 
 /**
@@ -61,7 +60,6 @@ public class ReadFragment extends BaseFragment {
         adapter.addFragment(new ZhiHuFragment(), "知乎");
         adapter.addFragment(new GankFragment(), "干货");
         adapter.addFragment(new ZhiHuFragment(), "豆瓣");
-        adapter.addFragment(new ZhiHuFragment(), "干货");
         viewPager.setAdapter(adapter);
     }
 
