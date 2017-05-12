@@ -68,7 +68,7 @@ public class DoubanFragment extends BaseFragment implements SwipeRefreshLayout.O
 
         mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
-        mRecyclerView.setArrowImageView(R.drawable.ic_battery_0);
+        mRecyclerView.setArrowImageView(R.drawable.xlistview_arrow);
 
         mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
@@ -93,13 +93,6 @@ public class DoubanFragment extends BaseFragment implements SwipeRefreshLayout.O
                         XLog.d(DoubanDateFormat(c.getTimeInMillis()));
                     }
                 }, 1200);
-            }
-        });
-
-        mRecyclerView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
             }
         });
 

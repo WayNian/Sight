@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/news_list_card_view"
+    style="@style/cardStyle"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="4dp"
+    card_view:cardPreventCornerOverlap="true">
+
+    <TextView
+        android:id="@+id/question_title"
+        style="@style/cardQuestionTitleStyle"
+        android:layout_centerVertical="true" />
+
+</android.support.v7.widget.CardView>

@@ -59,7 +59,7 @@ public class GankFragment extends BaseFragment {
 
         mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
-        mRecyclerView.setArrowImageView(R.drawable.ic_battery_0);
+        mRecyclerView.setArrowImageView(R.drawable.xlistview_arrow);
 
         mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override

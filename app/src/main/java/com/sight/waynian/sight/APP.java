@@ -14,10 +14,11 @@ import com.elvishew.xlog.XLog;
 public class APP extends Application {
 
     private static Context mContext;
-
+    public static APP instance;
     @Override
     public void onCreate() {
         super.onCreate();
+        instance = this;
         mContext = getApplicationContext();
         intLog();
     }

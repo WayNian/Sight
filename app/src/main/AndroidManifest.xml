@@ -281,7 +281,8 @@
         <activity
             android:name=".ui.AudioPlayerActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".ui.GankActivity"></activity>
+        <activity android:name=".ui.GankActivity" />
+        <activity android:name=".ui.GankWebActivity"></activity>
     </application>
 
 </manifest>

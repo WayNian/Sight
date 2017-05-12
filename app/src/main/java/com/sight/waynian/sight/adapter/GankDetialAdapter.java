@@ -1,6 +1,7 @@
 package com.sight.waynian.sight.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.bean.gank.Gank;
+import com.sight.waynian.sight.ui.GankWebActivity;
 
 import java.util.List;
 
@@ -40,6 +42,15 @@ public class GankDetialAdapter extends RecyclerView.Adapter<GankDetialAdapter.Vi
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
         holder.bindItem(list.get(position));
+
+        holder.card_gank.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, GankWebActivity.class);
+                intent.putExtra("url",list.get(position).getUrl());
+                context.startActivity(intent);
+            }
+        });
 
     }
 

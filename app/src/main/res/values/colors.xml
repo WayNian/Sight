@@ -26,6 +26,12 @@
     <!--Text-->
     <color name="textColor">#424242</color>
 
+    <color name="background">#F6F6F6</color>
+
+    <color name="text_strong">#070707</color>
+    <color name="text_nomal">#7C8282</color>
+    <color name="text_light">#BCC4C7</color>
+
     <!--gank-->
     <color name="android">#1F8AFF</color>
     <color name="ios">#F05D5E</color>

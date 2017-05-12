@@ -3,6 +3,7 @@ package com.sight.waynian.sight.http;
 import com.elvishew.xlog.XLog;
 import com.sight.waynian.sight.api.DoubanApiService;
 import com.sight.waynian.sight.api.GankApiService;
+import com.sight.waynian.sight.api.NetVideoService;
 import com.sight.waynian.sight.api.ZhihuApiService;
 import com.sight.waynian.sight.bean.douban.DoubanDetialBean;
 import com.sight.waynian.sight.bean.douban.DoubanListBean;
@@ -10,6 +11,7 @@ import com.sight.waynian.sight.bean.gank.Data;
 import com.sight.waynian.sight.bean.gank.GankData;
 import com.sight.waynian.sight.bean.gank.Meizhi;
 import com.sight.waynian.sight.bean.gank.Video;
+import com.sight.waynian.sight.bean.video.NetVideoBean;
 import com.sight.waynian.sight.bean.zhihu.News;
 import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
 import com.sight.waynian.sight.constants.UrlAddress;
@@ -38,6 +40,8 @@ public class HttpMethods {
     private GankApiService gankApiService;
 
     private DoubanApiService doubanApiService;
+
+    private NetVideoService netVideoService;
 
     private OkHttpClient getOkHttpClient() {
         //日志显示级别
@@ -95,6 +99,17 @@ public class HttpMethods {
                 .build();
 
         doubanApiService = doubanRetrofit.create(DoubanApiService.class);
+
+        //视频
+        Retrofit netVideoRetrofit = new Retrofit.Builder()
+                .client(httpClientBuilder.build())
+                .client(getOkHttpClient())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .baseUrl(UrlAddress.VIDEO_URL)
+                .build();
+
+        netVideoService = netVideoRetrofit.create(NetVideoService.class);
     }
 
     //再访问HttpMethods时创建单例
@@ -189,7 +204,7 @@ public class HttpMethods {
                 .subscribe(subscriber);
     }
 
-    //**************************************d豆瓣一刻***********************************************
+    //**************************************豆瓣一刻***********************************************
 
     /**
      * 列表
@@ -217,4 +232,17 @@ public class HttpMethods {
                 .subscribe(subscriber);
     }
 
+    //*************************************视频*******************************************
+    /**
+     * 视频列表
+     * @param subscriber
+     * @param pageIndex
+     */
+    public void getVideoList(Subscriber<NetVideoBean> subscriber, int pageIndex) {
+        netVideoService.getVideoList(pageIndex)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
 }

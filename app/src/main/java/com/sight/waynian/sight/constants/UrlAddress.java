@@ -19,5 +19,10 @@ public class UrlAddress {
     // eg:https://moment.douban.com/api/stream/date/2016-08-11
     public static final String DOUBAN_MOMENT = "https://moment.douban.com/api/";
 
+    //**************************************视频**********************************
+    //http://c.m.163.com/nc/article/headline/T1348647909107/0-5.html  头条
 
+    public static final int PAZE_SIZE = 10;
+
+    public static final String VIDEO_URL = "http://c.m.163.com/";
 }

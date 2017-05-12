@@ -13,6 +13,7 @@ import com.sight.waynian.sight.adapter.Adapter;
 import com.sight.waynian.sight.base.BaseFragment;
 import com.sight.waynian.sight.fragment.read.ZhiHuFragment;
 import com.sight.waynian.sight.fragment.video.LocalVideoFragment;
+import com.sight.waynian.sight.fragment.video.NetVideoFragment;
 
 /**
  * Created by waynian on 2017/4/4.
@@ -57,7 +58,7 @@ public class VideoFragment extends BaseFragment {
 
     private void setupViewPager(ViewPager viewPager) {
         Adapter adapter = new Adapter(getChildFragmentManager());
-        adapter.addFragment(new ZhiHuFragment(), "在线视频");
+        adapter.addFragment(new NetVideoFragment(), "在线视频");
         adapter.addFragment(new LocalVideoFragment(), "本地视频");
         viewPager.setAdapter(adapter);
     }
