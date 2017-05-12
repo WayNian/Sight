@@ -106,7 +106,7 @@ public class HttpMethods {
                 .client(getOkHttpClient())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .baseUrl(UrlAddress.VIDEO_URL)
+                .baseUrl(UrlAddress.VIDEO_FILM_URL)
                 .build();
 
         netVideoService = netVideoRetrofit.create(NetVideoService.class);
@@ -236,10 +236,10 @@ public class HttpMethods {
     /**
      * 视频列表
      * @param subscriber
-     * @param pageIndex
+     * @param
      */
-    public void getVideoList(Subscriber<NetVideoBean> subscriber, int pageIndex) {
-        netVideoService.getVideoList(pageIndex)
+    public void getVideoList(Subscriber<NetVideoBean> subscriber) {
+        netVideoService.getVideoList()
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

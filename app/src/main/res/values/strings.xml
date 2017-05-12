@@ -8,4 +8,21 @@
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="unknown">未知</string>
     <string name="title_activity_web">WebActivity</string>
+
+    <string name="one_word">没有对象的野指针</string>
+    <string name="app_info">视界</string>
+    <string name="desc"> * 知乎，干货集中营，豆瓣</string>
+    <string name="desc_api_zhihu"> * 知乎日报 Api 取自 ZhihuDailyPurify</string>
+    <string name="desc_api_gank"> * 干货日报 Api 取自 Gank.io</string>
+    <string name="desc_api_daily"> * 豆瓣一刻提供</string>
+    <string name="desc_dev"> * 整体开发基于 RxJava+Retrofit+Okhttp</string>
+    <string name="app_dev">开发</string>
+    <string name="desc_dev_3"> * 运用RecyclerView加载了多种复杂布局</string>
+    <string name="app_me">关于我</string>
+    <string name="me_1"> * 14届毕业生，南京人</string>
+    <string name="me_2"> * 喜欢看电影，爱好电脑硬件</string>
+    <string name="me_3"> * 喜欢玩游戏：守望先锋 </string>
+    <string name="app_content">联系我</string>
+    <string name="splash_info">In fact you really amazing</string>
+
 </resources>

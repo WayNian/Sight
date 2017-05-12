@@ -25,4 +25,6 @@ public class UrlAddress {
     public static final int PAZE_SIZE = 10;
 
     public static final String VIDEO_URL = "http://c.m.163.com/";
+
+    public static final String VIDEO_FILM_URL = "http://api.m.mtime.cn/PageSubArea/";
 }

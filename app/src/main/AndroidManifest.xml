@@ -282,7 +282,11 @@
             android:name=".ui.AudioPlayerActivity"
             android:launchMode="singleTask" />
         <activity android:name=".ui.GankActivity" />
-        <activity android:name=".ui.GankWebActivity"></activity>
+        <activity android:name=".ui.GankWebActivity" />
+        <activity android:name=".ui.NetVideoDetailsActivity"
+            android:screenOrientation="landscape">
+
+        </activity>
     </application>
 
 </manifest>

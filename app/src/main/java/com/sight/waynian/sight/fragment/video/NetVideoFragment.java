@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.elvishew.xlog.XLog;
 import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.sight.waynian.sight.R;
@@ -30,11 +31,9 @@ import rx.Subscriber;
 public class NetVideoFragment extends BaseFragment {
 
     private XRecyclerView mRecyclerView;
-    private List<NetVideoBean.V9LG4CHORBean> listData;
+    private List<NetVideoBean.TrailersBean> listData;
 
     private NetVideoAdapter netVideoAdapter;
-
-    private int pageIndex = 0;
 
     @Nullable
     @Override
@@ -67,8 +66,7 @@ public class NetVideoFragment extends BaseFragment {
                 new Handler().postDelayed(new Runnable() {
                     public void run() {
                         listData.clear();
-                        pageIndex = 0;
-                        getVideoList(pageIndex);
+                        getVideoList();
                     }
                 }, 1000);            //refresh data here
             }
@@ -77,8 +75,7 @@ public class NetVideoFragment extends BaseFragment {
             public void onLoadMore() {
                 new Handler().postDelayed(new Runnable() {
                     public void run() {
-                        ++pageIndex;
-                        getVideoList(pageIndex * 10);
+                        getVideoList();
                         netVideoAdapter.notifyDataSetChanged();
                     }
                 }, 1000);
@@ -89,10 +86,9 @@ public class NetVideoFragment extends BaseFragment {
         netVideoAdapter = new NetVideoAdapter(mContext, listData);
         mRecyclerView.setAdapter(netVideoAdapter);
         mRecyclerView.refresh();
-        getVideoList(pageIndex);
     }
 
-    private void getVideoList(int pageIndex) {
+    private void getVideoList() {
         HttpMethods.getInstance().getVideoList(new Subscriber<NetVideoBean>() {
             @Override
             public void onCompleted() {
@@ -100,16 +96,18 @@ public class NetVideoFragment extends BaseFragment {
 
             @Override
             public void onError(Throwable e) {
+                XLog.d(e.getMessage());
             }
 
             @Override
             public void onNext(NetVideoBean netVideoBean) {
-                for (NetVideoBean.V9LG4CHORBean item : netVideoBean.getTag()) {
+                for (NetVideoBean.TrailersBean item : netVideoBean.getTrailers()) {
                     listData.add(item);
                 }
+                XLog.d(listData.size());
                 netVideoAdapter.notifyDataSetChanged();
                 mRecyclerView.refreshComplete();
             }
-        }, pageIndex);
+        });
     }
 }
