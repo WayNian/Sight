@@ -4,6 +4,7 @@ import com.elvishew.xlog.XLog;
 import com.sight.waynian.sight.api.DoubanApiService;
 import com.sight.waynian.sight.api.GankApiService;
 import com.sight.waynian.sight.api.ZhihuApiService;
+import com.sight.waynian.sight.bean.douban.DoubanDetialBean;
 import com.sight.waynian.sight.bean.douban.DoubanListBean;
 import com.sight.waynian.sight.bean.gank.Data;
 import com.sight.waynian.sight.bean.gank.GankData;
@@ -189,6 +190,12 @@ public class HttpMethods {
     }
 
     //**************************************d豆瓣一刻***********************************************
+
+    /**
+     * 列表
+     * @param subscriber
+     * @param date
+     */
     public void getDoubanList(Subscriber<DoubanListBean> subscriber, String date) {
         doubanApiService.getDoubanList(date)
                 .subscribeOn(Schedulers.io())
@@ -197,5 +204,17 @@ public class HttpMethods {
                 .subscribe(subscriber);
     }
 
+    /**
+     * 详情
+     * @param subscriber
+     * @param id
+     */
+    public void getDoubanDetial(Subscriber<DoubanDetialBean> subscriber, String id) {
+        doubanApiService.getDetailNews(id)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(subscriber);
+    }
 
 }

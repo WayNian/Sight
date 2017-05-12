@@ -30,7 +30,6 @@ import rx.Subscriber;
 
 public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    private static final String TAG = DoubanFragment.class.getCanonicalName();
     private XRecyclerView mRecyclerView;
     private List<ZhihuBean.StoriesBean> listData;
 
@@ -79,18 +78,14 @@ public class ZhiHuFragment extends BaseFragment implements SwipeRefreshLayout.On
             @Override
             public void onLoadMore() {
                 new Handler().postDelayed(new Runnable() {
+                    @Override
                     public void run() {
-                        final Calendar c = Calendar.getInstance();
+                        Calendar c = Calendar.getInstance();
                         c.set(mYear, mMonth, --mDay);
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                getHistoryNews(DateFormatter.ZhihuDailyDateFormat(c.getTimeInMillis()));
-                                zhihuAdapter.notifyDataSetChanged();
-                            }
-                        }, 1200);
+                        getHistoryNews(DateFormatter.ZhihuDailyDateFormat(c.getTimeInMillis()));
+                        zhihuAdapter.notifyDataSetChanged();
                     }
-                }, 1000);
+                }, 1200);
             }
         });
 

@@ -111,7 +111,7 @@ public class GankFragment extends BaseFragment {
                 for (Data.ResultsBean item : data.getResults()) {
                     listData.add(item);
                 }
-                XLog.d(data.getResults().toString());
+//                XLog.d(data.getResults().toString());
                 gankDetialAdapter.notifyDataSetChanged();
                 mRecyclerView.refreshComplete();
             }

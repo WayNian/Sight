@@ -10,12 +10,13 @@ import java.util.List;
 
 public class DoubanListBean {
 
+
     /**
      * count : 0
-     * posts : [{"display_style":10001,"is_editor_choice":false,"published_time":"2017-05-06 21:00:00","original_url":"https://www.douban.com/note/617056294/","url":"https://moment.douban.com/post/169973/?douban_rec=1","short_url":"https://dou.bz/4ftdtj","is_liked":false,"author":{"is_followed":false,"uid":"135816483","url":"https://www.douban.com/people/135816483/","avatar":"https://img3.doubanio.com/icon/u135816483-2.jpg","name":"阿小号","is_special_user":false,"n_posts":0,"alt":"你以为你谁啊！","large_avatar":"https://img3.doubanio.com/icon/up135816483-2.jpg","id":"135816483","is_auth_author":false},"column":"","app_css":7,"abstract":"1 贾诩投奔曹操的时候曹操一直不语。不说杀，也不说留，只是若有所思的看着他，不...","date":"2017-05-06","like_count":11,"comments_count":2,"thumbs":[],"created_time":"2017-04-24 14:13:31","title":"贾诩的怪癖","share_pic_url":"https://moment.douban.com/share_pic/post/169973.jpg","type":"1001","id":169973},{"display_style":10003,"is_editor_choice":false,"published_time":"2017-05-06 19:00:00","original_url":"https://www.douban.com/photos/album/1644965482/","url":"https://moment.douban.com/post/168168/?douban_rec=1","short_url":"https://dou.bz/3K1QuY","is_liked":false,"author":{"is_followed":false,"uid":"pingzills","url":"https://www.douban.com/people/pingzills/","avatar":"https://img3.doubanio.com/icon/u2109295-6.jpg","name":"小力子百合","is_special_user":false,"n_posts":0,"alt":"心晴就好","large_avatar":"https://img3.doubanio.com/icon/up2109295-6.jpg","id":"2109295","is_auth_author":false},"column":"去远方","app_css":7,"abstract":"激情，浪漫，神秘，结合高迪的鬼斧神工，沁在温暖的大西洋风中。","date":"2017-05-06","like_count":33,"comments_count":0,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124301.jpg","width":960,"height":600},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124301.jpg","width":1500,"height":938},"tag_name":"img_2","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124301.jpg","width":320,"height":200},"id":124301},{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124302.jpg","width":960,"height":637},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124302.jpg","width":1500,"height":996},"tag_name":"img_3","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124302.jpg","width":320,"height":212},"id":124302},{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124303.jpg","width":600,"height":337},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124303.jpg","width":600,"height":337},"tag_name":"img_4","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124303.jpg","width":320,"height":179},"id":124303}],"created_time":"2017-04-05 14:47:15","title":"巴塞罗那","share_pic_url":"https://moment.douban.com/share_pic/post/168168.jpg","type":"1004","id":168168},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-06 17:00:00","original_url":"https://www.douban.com/note/616338274/","url":"https://moment.douban.com/post/170947/?douban_rec=1","short_url":"https://dou.bz/1GkGEX","is_liked":false,"author":{"is_followed":false,"uid":"unarcenciel","url":"https://www.douban.com/people/unarcenciel/","avatar":"https://img3.doubanio.com/icon/u4810525-115.jpg","name":"Pearciac","is_special_user":false,"n_posts":0,"alt":"Lascia ch'io pianga","large_avatar":"https://img3.doubanio.com/icon/up4810525-115.jpg","id":"4810525","is_auth_author":false},"column":"去远方","app_css":7,"abstract":"看的越多越觉得应了那句话，对这个城市的了解也不过是它的鳞爪\u2014\u2014而这些鳞爪带给我的震颤和迷醉，已然超过了其他任何地方。","date":"2017-05-06","like_count":56,"comments_count":0,"thumbs":[{"medium":{"url":"https://img1.doubanio.com/view/presto/medium/public/t124298.jpg","width":960,"height":408},"description":"","large":{"url":"https://img1.doubanio.com/view/presto/large/public/t124298.jpg","width":1280,"height":544},"tag_name":"img_3","small":{"url":"https://img1.doubanio.com/view/presto/small/public/t124298.jpg","width":320,"height":136},"id":124298}],"created_time":"2017-05-04 11:14:22","title":"超多图｜罗马，无疑是罗马 ：【绝美之城】里的绝美之城","share_pic_url":"https://moment.douban.com/share_pic/post/170947.jpg","type":"1001","id":170947},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-06 16:00:00","original_url":"https://www.douban.com/note/616893450/","url":"https://moment.douban.com/post/169964/?douban_rec=1","short_url":"https://dou.bz/1YckOz","is_liked":false,"author":{"is_followed":false,"uid":"yaozhujun","url":"https://www.douban.com/people/yaozhujun/","avatar":"https://img3.doubanio.com/icon/u48900533-22.jpg","name":"BambooIsland","is_special_user":false,"n_posts":0,"alt":"竹子岛屿","large_avatar":"https://img3.doubanio.com/icon/up48900533-22.jpg","id":"48900533","is_auth_author":false},"column":"爱美丽","app_css":7,"abstract":"看到有人把Everlane夸到天上和批到不行，都有点儿难受。所以写了这一篇，自觉还算中肯，希望能给大家一点儿参考吧~","date":"2017-05-06","like_count":94,"comments_count":5,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124295.jpg","width":576,"height":576},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124295.jpg","width":576,"height":576},"tag_name":"img_3","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124295.jpg","width":320,"height":320},"id":124295}],"created_time":"2017-04-24 13:57:51","title":"来聊一聊Everlane，含两年来21件单品购买报告。","share_pic_url":"https://moment.douban.com/share_pic/post/169964.jpg","type":"1001","id":169964},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-06 15:00:00","original_url":"https://movie.douban.com/review/8476759/","url":"https://moment.douban.com/post/169154/?douban_rec=1","short_url":"https://dou.bz/2iCx10","is_liked":false,"author":{"is_followed":false,"editor_notes":"偏文的理科生，兼职王牌通宵员","uid":"dreamfox","resume":"影迷游戏迷，理科出身，对解构和数据方面偏爱，对资源整合综述、数据统计有着极强的敏感。坚信虚幻的世界中可以窥见真理，我们祖先已经从神话故事中告诉我们想象力不应受到地心引力的束缚，因为他每个细胞都洒满自由的光辉。","url":"https://www.douban.com/people/dreamfox/","avatar":"https://img3.doubanio.com/icon/u2297669-2.jpg","name":"乌鸦火堂","is_special_user":false,"last_post_time":"2017-05-06 15:00:00","n_posts":40,"alt":"天长不地久，曾经也拥有","large_avatar":"https://img3.doubanio.com/icon/up2297669-2.jpg","id":"2297669","is_auth_author":true},"column":"看电影","app_css":7,"abstract":"别再折腾\u201c还星爷一张电影票\u201d这种说辞了，没必要。未来估计不会在这么大规模的消耗情怀了。喜欢可以看看，不喜欢无视喽。","date":"2017-05-06","like_count":43,"comments_count":5,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124305.jpg","width":300,"height":420},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124305.jpg","width":300,"height":420},"tag_name":"img_1","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124305.jpg","width":300,"height":420},"id":124305}],"created_time":"2017-04-15 23:31:32","title":"\u201c加长纪念版\u201d究竟隐藏着怎样的秘密","share_pic_url":"https://moment.douban.com/share_pic/post/169154.jpg","type":"1003","id":169154},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-06 14:00:00","original_url":"https://www.douban.com/note/616488604/","url":"https://moment.douban.com/post/169587/?douban_rec=1","short_url":"https://dou.bz/3AT6mL","is_liked":false,"author":{"is_followed":false,"editor_notes":"食评作者，对苍蝇馆子和米其林餐厅一视同仁。","uid":"bluelavender","resume":"业余食评作者，曾在京都游学，对苍蝇馆子和米其林餐厅一视同仁，爱吃却不懂下厨，上路多半为了远方的美食。","url":"https://www.douban.com/people/bluelavender/","avatar":"https://img3.doubanio.com/icon/u3901770-146.jpg","name":"叶酱","is_special_user":false,"last_post_time":"2017-05-06 14:00:00","n_posts":87,"alt":"公众号：叶酱的孤独星球","large_avatar":"https://img3.doubanio.com/icon/up3901770-146.jpg","id":"3901770","is_auth_author":true},"column":"去远方","app_css":7,"abstract":"每次去海南都能感受到一种强烈的欢乐假象，三角梅开得如火似荼，海边游人如织，北国来的金发情侣在椰林里亲吻。","date":"2017-05-06","like_count":18,"comments_count":2,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124292.jpg","width":960,"height":638},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124292.jpg","width":1600,"height":1063},"tag_name":"img_1","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124292.jpg","width":320,"height":212},"id":124292}],"created_time":"2017-04-20 15:30:42","title":"每一个魔幻的海南小镇背后，都有一群怕冷的候鸟","share_pic_url":"https://moment.douban.com/share_pic/post/169587.jpg","type":"1001","id":169587},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-06 13:00:00","original_url":"https://www.douban.com/note/616776080/","url":"https://moment.douban.com/post/169722/?douban_rec=1","short_url":"https://dou.bz/3XMfpb","is_liked":false,"author":{"is_followed":false,"uid":"Jericho","url":"https://www.douban.com/people/Jericho/","avatar":"https://img1.doubanio.com/icon/u1440407-27.jpg","name":"2koo","is_special_user":false,"n_posts":0,"alt":"微信公众号：晃荡范","large_avatar":"https://img1.doubanio.com/icon/up1440407-27.jpg","id":"1440407","is_auth_author":false},"column":"食记","app_css":7,"abstract":"这大概是我整理过最有趣的聊天记录之一。在这些问答之中，我最喜欢的还是最后一句：保有对世界的好奇心，笔下的文章也会更漂亮。","date":"2017-05-06","like_count":110,"comments_count":6,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124281.jpg","width":640,"height":426},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124281.jpg","width":640,"height":426},"tag_name":"img_1","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124281.jpg","width":320,"height":213},"id":124281}],"created_time":"2017-04-21 14:42:49","title":"我和张佳玮聊了聊，如何评价网络上的大中餐沙文主义","share_pic_url":"https://moment.douban.com/share_pic/post/169722.jpg","type":"1001","id":169722},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-06 12:00:00","original_url":"https://www.douban.com/note/612604096/","url":"https://moment.douban.com/post/169334/?douban_rec=1","short_url":"https://dou.bz/3o13CV","is_liked":false,"author":{"is_followed":false,"uid":"M-Art","url":"https://www.douban.com/people/M-Art/","avatar":"https://img3.doubanio.com/icon/u159473311-2.jpg","name":"MArt_現代藝術","is_special_user":false,"n_posts":0,"alt":"探索创造力大爆炸的20世纪艺术","large_avatar":"https://img3.doubanio.com/icon/up159473311-2.jpg","id":"159473311","is_auth_author":false},"column":"聊艺术","app_css":7,"abstract":"当时的艺术家们全身心地相信\u201c艺术能改变世界\u201d，就像60、70年代的欧美青年们相信可以用音乐改变世界一样。","date":"2017-05-06","like_count":19,"comments_count":0,"thumbs":[{"medium":{"url":"https://img1.doubanio.com/view/presto/medium/public/t124278.jpg","width":960,"height":664},"description":"","large":{"url":"https://img1.doubanio.com/view/presto/large/public/t124278.jpg","width":1090,"height":755},"tag_name":"img_1","small":{"url":"https://img1.doubanio.com/view/presto/small/public/t124278.jpg","width":320,"height":221},"id":124278}],"created_time":"2017-04-18 14:27:03","title":"开篇","share_pic_url":"https://moment.douban.com/share_pic/post/169334.jpg","type":"1001","id":169334},{"display_style":10002,"is_editor_choice":true,"published_time":"2017-05-06 11:30:00","original_url":"https://www.douban.com/note/618492666/","url":"https://moment.douban.com/post/171095/?douban_rec=1","short_url":"https://dou.bz/1Nigu0","is_liked":false,"author":{"is_followed":false,"editor_notes":"最爱于生活处发现欢乐，记录。","uid":"LordBean","resume":"已经历的生命各个阶段都不那么精彩，于是被逼出了在不精彩中观察精彩和寻找快乐的四只眼睛。","url":"https://www.douban.com/people/LordBean/","avatar":"https://img3.doubanio.com/icon/u4890144-11.jpg","name":"刮刮油","is_special_user":false,"last_post_time":"2017-05-06 11:30:00","n_posts":21,"alt":"一二三四五七八","large_avatar":"https://img3.doubanio.com/icon/up4890144-11.jpg","id":"4890144","is_auth_author":true},"column":"哈哈哈","app_css":7,"abstract":"\u201c不能白玩\u201d让我对外出有种很纠结的情感。出行第一天能高兴得屁眼开花，最后一天则恨不得自己没出来，不如在家院子里撒尿和泥。","date":"2017-05-06","like_count":168,"comments_count":26,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124341.jpg","width":400,"height":154},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/raw/public/t124341.jpg","width":400,"height":154},"tag_name":"img_2","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124341.jpg","width":320,"height":123},"id":124341}],"created_time":"2017-05-05 11:15:58","title":"你可不能白玩啊！","share_pic_url":"https://moment.douban.com/share_pic/post/171095.jpg","type":"1001","id":171095},{"display_style":10003,"is_editor_choice":false,"published_time":"2017-05-06 10:00:00","original_url":"https://www.douban.com/photos/album/1643618337/","url":"https://moment.douban.com/post/169950/?douban_rec=1","short_url":"https://dou.bz/2Zw2Sw","is_liked":false,"author":{"is_followed":false,"uid":"yuami","url":"https://www.douban.com/people/yuami/","avatar":"https://img1.doubanio.com/icon/u2330451-17.jpg","name":"fish","is_special_user":false,"n_posts":0,"alt":"欠一颗勇敢的心","large_avatar":"https://img1.doubanio.com/icon/up2330451-17.jpg","id":"2330451","is_auth_author":false},"column":"","app_css":7,"abstract":"大院花事，懒人拍照的最好消遣。","date":"2017-05-06","like_count":56,"comments_count":6,"thumbs":[{"medium":{"url":"https://img1.doubanio.com/view/presto/medium/public/t124307.jpg","width":600,"height":397},"description":"","large":{"url":"https://img1.doubanio.com/view/presto/large/public/t124307.jpg","width":600,"height":397},"tag_name":"img_1","small":{"url":"https://img1.doubanio.com/view/presto/small/public/t124307.jpg","width":320,"height":211},"id":124307},{"medium":{"url":"https://img1.doubanio.com/view/presto/medium/public/t124308.jpg","width":600,"height":397},"description":"","large":{"url":"https://img1.doubanio.com/view/presto/large/public/t124308.jpg","width":600,"height":397},"tag_name":"img_2","small":{"url":"https://img1.doubanio.com/view/presto/small/public/t124308.jpg","width":320,"height":211},"id":124308},{"medium":{"url":"https://img1.doubanio.com/view/presto/medium/public/t124309.jpg","width":600,"height":397},"description":"","large":{"url":"https://img1.doubanio.com/view/presto/large/public/t124309.jpg","width":600,"height":397},"tag_name":"img_3","small":{"url":"https://img1.doubanio.com/view/presto/small/public/t124309.jpg","width":320,"height":211},"id":124309}],"created_time":"2017-04-24 10:58:24","title":"梦田2017","share_pic_url":"https://moment.douban.com/share_pic/post/169950.jpg","type":"1004","id":169950},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-06 09:00:00","original_url":"https://www.douban.com/note/615883441/","url":"https://moment.douban.com/post/169274/?douban_rec=1","short_url":"https://dou.bz/21FAYs","is_liked":false,"author":{"is_followed":false,"uid":"yystilllife","url":"https://www.douban.com/people/yystilllife/","avatar":"https://img3.doubanio.com/icon/u2174910-33.jpg","name":"sTill-Life","is_special_user":false,"n_posts":0,"alt":"读万卷书，行万里路。","large_avatar":"https://img3.doubanio.com/icon/up2174910-33.jpg","id":"2174910","is_auth_author":false},"column":"萌","app_css":7,"abstract":"当黄小跳燃油耗尽慢下来的时候，我才看清她脖子上套了个纸袋把手\u2026\u2026她竟然被自己愚蠢的钻纸袋行为吓到飞起来！你妹哦。","date":"2017-05-06","like_count":65,"comments_count":16,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124253.jpg","width":960,"height":960},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124253.jpg","width":1600,"height":1600},"tag_name":"img_1","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124253.jpg","width":320,"height":320},"id":124253}],"created_time":"2017-04-17 23:30:31","title":"当你有一只神经质的猫和一个神经病室友","share_pic_url":"https://moment.douban.com/share_pic/post/169274.jpg","type":"1001","id":169274},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-06 08:00:00","original_url":"https://www.douban.com/note/616189332/","url":"https://moment.douban.com/post/169351/?douban_rec=1","short_url":"https://dou.bz/3DDqOz","is_liked":false,"author":{"is_followed":false,"uid":"Mercury9999","url":"https://www.douban.com/people/Mercury9999/","avatar":"https://img3.doubanio.com/icon/u1301150-2.jpg","name":"Mercury","is_special_user":false,"n_posts":0,"alt":"人生是一场修行，苦行僧?花和尚?","large_avatar":"https://img3.doubanio.com/icon/up1301150-2.jpg","id":"1301150","is_auth_author":false},"column":"假日厨房","app_css":7,"abstract":"世界这么大，万物生长，在吃货的眼里，无非是分为两大类，可以吃的和不能吃的，如果再细分，那就是好吃的和不好吃的，而已。","date":"2017-05-06","like_count":156,"comments_count":10,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124274.jpg","width":960,"height":720},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124274.jpg","width":1280,"height":960},"tag_name":"img_1","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124274.jpg","width":320,"height":240},"id":124274}],"created_time":"2017-04-18 14:37:01","title":"吃货的世界你懂不懂？锅烧河蚌火腿老豆腐","share_pic_url":"https://moment.douban.com/share_pic/post/169351.jpg","type":"1001","id":169351},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-06 00:00:00","original_url":"","url":"https://moment.douban.com/post/170514/?douban_rec=1","short_url":"https://dou.bz/1teNzd","is_liked":false,"column":"打鸡血","app_css":7,"abstract":"《人民的名义》里说一代人有一代人的娱乐，所以高小凤要读《万历十五年》、高小琴要会唱《智斗》。我觉得再过二三十年...","date":"2017-05-06","like_count":81,"comments_count":54,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124333.jpg","width":460,"height":306},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124333.jpg","width":460,"height":306},"tag_name":"img_1","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124333.jpg","width":320,"height":212},"id":124333}],"created_time":"2017-04-29 08:00:05","title":"打鸡血｜没人拉架会很没面子 2017.05.06","share_pic_url":"https://moment.douban.com/share_pic/post/170514.jpg","type":"1001","id":170514},{"display_style":10003,"is_editor_choice":false,"published_time":"2017-05-06 00:00:00","original_url":"https://www.douban.com/photos/album/48366984/","url":"https://moment.douban.com/post/168596/?douban_rec=1","short_url":"https://dou.bz/3KJKx5","is_liked":false,"author":{"is_followed":false,"uid":"diamonster","url":"https://www.douban.com/people/diamonster/","avatar":"https://img3.doubanio.com/icon/u47578710-81.jpg","name":"方块阿兽","is_special_user":false,"n_posts":0,"alt":"","large_avatar":"https://img3.doubanio.com/icon/up47578710-81.jpg","id":"47578710","is_auth_author":false},"column":"","app_css":7,"abstract":"#有感而绘# #懒得分类#","date":"2017-05-06","like_count":65,"comments_count":3,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124310.jpg","width":565,"height":800},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124310.jpg","width":565,"height":800},"tag_name":"img_1","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124310.jpg","width":320,"height":453},"id":124310},{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124311.jpg","width":800,"height":800},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124311.jpg","width":800,"height":800},"tag_name":"img_2","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124311.jpg","width":320,"height":320},"id":124311},{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124312.jpg","width":960,"height":704},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124312.jpg","width":1090,"height":800},"tag_name":"img_3","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124312.jpg","width":320,"height":234},"id":124312}],"created_time":"2017-04-10 11:22:14","title":"绘","share_pic_url":"https://moment.douban.com/share_pic/post/168596.jpg","type":"1004","id":168596},{"display_style":10001,"is_editor_choice":false,"published_time":"2017-05-06 00:00:00","original_url":"https://www.douban.com/note/616879102/","url":"https://moment.douban.com/post/169716/?douban_rec=1","short_url":"https://dou.bz/2v02gr","is_liked":false,"author":{"is_followed":false,"uid":"69595269","url":"https://www.douban.com/people/69595269/","avatar":"https://img3.doubanio.com/icon/u69595269-15.jpg","name":"她的移动城堡","is_special_user":false,"n_posts":0,"alt":"","large_avatar":"https://img3.doubanio.com/icon/up69595269-15.jpg","id":"69595269","is_auth_author":false},"column":"","app_css":7,"abstract":"到河边时，我顺着她指的地方找去，望见她一个人坐在河边的椅子上，走近身旁，她正戴着一副耳机在听歌，我问她怎么了，她直截了当，劈头盖脸的说了短短的一句话：\u201c我父母离婚了。\u201d","date":"2017-05-06","like_count":48,"comments_count":16,"thumbs":[],"created_time":"2017-04-21 14:36:45","title":"明天她将要结婚","share_pic_url":"https://moment.douban.com/share_pic/post/169716.jpg","type":"1001","id":169716}]
+     * posts : [{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-12 09:00:00","original_url":"https://www.douban.com/note/617650946/","url":"https://moment.douban.com/post/170374/?douban_rec=1","short_url":"https://dou.bz/0B5eda","is_liked":false,"author":{"is_followed":false,"uid":"39690610","url":"https://www.douban.com/people/39690610/","avatar":"https://img3.doubanio.com/icon/u39690610-4.jpg","name":"老慢伯","is_special_user":false,"n_posts":0,"alt":"知君只爱市中隐，把酒问花坐相悦","large_avatar":"https://img3.doubanio.com/icon/up39690610-4.jpg","id":"39690610","is_auth_author":false},"column":"","app_css":7,"abstract":"很多年前的那场失败的作弊事件，却让我在日后明白了那么多从未想过的为人之道。如今想想，实在有趣的很哪！","date":"2017-05-12","like_count":9,"comments_count":0,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124434.jpg","width":600,"height":401},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124434.jpg","width":600,"height":401},"tag_name":"img_1","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124434.jpg","width":320,"height":213},"id":124434}],"created_time":"2017-04-27 15:23:14","title":"记一次失败的作弊事件","share_pic_url":"https://moment.douban.com/share_pic/post/170374.jpg","type":"1001","id":170374},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-12 08:00:00","original_url":"https://www.douban.com/note/617040911/","url":"https://moment.douban.com/post/170097/?douban_rec=1","short_url":"https://dou.bz/2Rvb0I","is_liked":false,"author":{"is_followed":false,"uid":"81699423","url":"https://www.douban.com/people/81699423/","avatar":"https://img3.doubanio.com/icon/u81699423-3.jpg","name":"张晓失","is_special_user":false,"n_posts":0,"alt":"","large_avatar":"https://img3.doubanio.com/icon/up81699423-3.jpg","id":"81699423","is_auth_author":false},"column":"","app_css":7,"abstract":"从吉祥物到晦气物，鹈鹕的身份被颠覆得太狠了。而这种情意绵绵的鸟儿，并不知道。在这个世界上，它们彼此有深情\u2026\u2026","date":"2017-05-12","like_count":5,"comments_count":3,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124433.jpg","width":526,"height":340},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124433.jpg","width":526,"height":340},"tag_name":"img_1","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124433.jpg","width":320,"height":206},"id":124433}],"created_time":"2017-04-25 14:30:44","title":"\u201c诗\u201d的物｜鹈：从吉祥物到晦气物，颠覆得太狠","share_pic_url":"https://moment.douban.com/share_pic/post/170097.jpg","type":"1001","id":170097},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-12 04:00:00","original_url":"https://book.douban.com/review/8474691/","url":"https://moment.douban.com/post/169029/?douban_rec=1","short_url":"https://dou.bz/3Wdvdb","is_liked":false,"author":{"is_followed":false,"uid":"138228322","url":"https://www.douban.com/people/138228322/","avatar":"https://img3.doubanio.com/icon/u138228322-3.jpg","name":"遥远的星空","is_special_user":false,"n_posts":0,"alt":"读书使自己更加专注","large_avatar":"https://img3.doubanio.com/icon/up138228322-3.jpg","id":"138228322","is_auth_author":false},"column":"闲翻书","app_css":7,"abstract":"在300余年的征战中，异教徒也先后接受了基督教，慢慢融入了基督教文明。一定程度上，他们激活了当时仿佛一坛死水的欧洲大陆。","date":"2017-05-12","like_count":23,"comments_count":2,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124430.jpg","width":400,"height":574},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124430.jpg","width":400,"height":574},"tag_name":"img_1","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124430.jpg","width":320,"height":459},"id":124430}],"created_time":"2017-04-14 10:19:57","title":"其实，他们也是卓越的工匠、水手、探险家和商人","share_pic_url":"https://moment.douban.com/share_pic/post/169029.jpg","type":"1003","id":169029},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-12 04:00:00","original_url":"https://movie.douban.com/review/8521929/","url":"https://moment.douban.com/post/171715/?douban_rec=1","short_url":"https://dou.bz/34Xc1M","is_liked":false,"author":{"is_followed":false,"uid":"66738259","url":"https://www.douban.com/people/66738259/","avatar":"https://img1.doubanio.com/icon/u66738259-9.jpg","name":"大夫唐","is_special_user":false,"n_posts":0,"alt":"A Dead Sinking Story","large_avatar":"https://img1.doubanio.com/icon/up66738259-9.jpg","id":"66738259","is_auth_author":false},"column":"听音乐","app_css":7,"abstract":"你留恋的过去，被你一直惦念的人亲手毁了；而你发现一直包容你爱护你的人，就在你身边，只是他早已远去\u2026\u2026","date":"2017-05-12","like_count":37,"comments_count":4,"thumbs":[{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124432.jpg","width":960,"height":480},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124432.jpg","width":1600,"height":800},"tag_name":"img_2","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124432.jpg","width":320,"height":160},"id":124432}],"created_time":"2017-05-10 10:35:25","title":"我从音乐角度来说一下《守银2》的细节","share_pic_url":"https://moment.douban.com/share_pic/post/171715.jpg","type":"1003","id":171715},{"display_style":10002,"is_editor_choice":false,"published_time":"2017-05-12 00:00:00","original_url":"","url":"https://moment.douban.com/post/171056/?douban_rec=1","short_url":"https://dou.bz/3x8HL8","is_liked":false,"column":"打鸡血","app_css":7,"abstract":"我刚刚，半价买了一张黄牛票来看展，但展览太烂了根本看不下去，结果看展看到一半被发现是假票于是被挡出去了......","date":"2017-05-12","like_count":34,"comments_count":45,"thumbs":[{"medium":{"url":"https://img1.doubanio.com/view/presto/medium/public/t124367.jpg","width":460,"height":306},"description":"","large":{"url":"https://img1.doubanio.com/view/presto/large/public/t124367.jpg","width":460,"height":306},"tag_name":"img_1","small":{"url":"https://img1.doubanio.com/view/presto/small/public/t124367.jpg","width":320,"height":212},"id":124367}],"created_time":"2017-05-05 08:00:07","title":"打鸡血｜对自己的电脑食言好几个月了 2017.05.12","share_pic_url":"https://moment.douban.com/share_pic/post/171056.jpg","type":"1001","id":171056},{"display_style":10003,"is_editor_choice":false,"published_time":"2017-05-12 00:00:00","original_url":"https://www.douban.com/note/617253518/","url":"https://moment.douban.com/post/169957/?douban_rec=1","short_url":"https://dou.bz/0oMFPQ","is_liked":false,"author":{"is_followed":false,"uid":"wangxxno1","url":"https://www.douban.com/people/wangxxno1/","avatar":"https://img1.doubanio.com/icon/u1993926-38.jpg","name":"王xx","is_special_user":false,"n_posts":0,"alt":"","large_avatar":"https://img1.doubanio.com/icon/up1993926-38.jpg","id":"1993926","is_auth_author":false},"column":"萌","app_css":7,"abstract":"海豹实在是太好画了~","date":"2017-05-12","like_count":25,"comments_count":1,"thumbs":[{"medium":{"url":"https://img1.doubanio.com/view/presto/medium/public/t124458.jpg","width":629,"height":495},"description":"","large":{"url":"https://img1.doubanio.com/view/presto/large/public/t124458.jpg","width":629,"height":495},"tag_name":"img_1","small":{"url":"https://img1.doubanio.com/view/presto/small/public/t124458.jpg","width":320,"height":251},"id":124458},{"medium":{"url":"https://img1.doubanio.com/view/presto/medium/public/t124459.jpg","width":648,"height":640},"description":"","large":{"url":"https://img1.doubanio.com/view/presto/large/public/t124459.jpg","width":648,"height":640},"tag_name":"img_2","small":{"url":"https://img1.doubanio.com/view/presto/small/public/t124459.jpg","width":320,"height":316},"id":124459},{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124460.jpg","width":645,"height":644},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124460.jpg","width":645,"height":644},"tag_name":"img_3","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124460.jpg","width":320,"height":319},"id":124460}],"created_time":"2017-04-24 11:28:15","title":"海豹漫画｜让我们坦诚相见！","share_pic_url":"https://moment.douban.com/share_pic/post/169957.jpg","type":"1001","id":169957},{"display_style":10001,"is_editor_choice":false,"published_time":"2017-05-12 00:00:00","original_url":"https://www.douban.com/note/619438789/","url":"https://moment.douban.com/post/171596/?douban_rec=1","short_url":"https://dou.bz/3dDi44","is_liked":false,"author":{"is_followed":false,"uid":"sudouya","url":"https://www.douban.com/people/sudouya/","avatar":"https://img3.doubanio.com/icon/u30789450-26.jpg","name":"苏豆芽","is_special_user":false,"n_posts":0,"alt":"注定是反派","large_avatar":"https://img3.doubanio.com/icon/up30789450-26.jpg","id":"30789450","is_auth_author":false},"column":"","app_css":7,"abstract":"严明后来就没再喝过酒了。跟所有乌七八糟的事情比起来，他的伤心还算不上什么大事儿。恬恬也没再给他打过电话。一年多之后，他在她的qq空间里看到她儿子的照片，他特别仔细地看了一阵儿，长得一点儿也不像自己，颇有一些失落。","date":"2017-05-12","like_count":54,"comments_count":5,"thumbs":[],"created_time":"2017-05-09 11:48:41","title":"长文｜朋友圈爱情故事","share_pic_url":"https://moment.douban.com/share_pic/post/171596.jpg","type":"1001","id":171596}]
      * offset : 7200
-     * date : 2017-05-06
-     * total : 16
+     * date : 2017-05-12
+     * total : 7
      */
 
     private int count;
@@ -66,26 +67,26 @@ public class DoubanListBean {
 
     public static class PostsBean {
         /**
-         * display_style : 10001
+         * display_style : 10002
          * is_editor_choice : false
-         * published_time : 2017-05-06 21:00:00
-         * original_url : https://www.douban.com/note/617056294/
-         * url : https://moment.douban.com/post/169973/?douban_rec=1
-         * short_url : https://dou.bz/4ftdtj
+         * published_time : 2017-05-12 09:00:00
+         * original_url : https://www.douban.com/note/617650946/
+         * url : https://moment.douban.com/post/170374/?douban_rec=1
+         * short_url : https://dou.bz/0B5eda
          * is_liked : false
-         * author : {"is_followed":false,"uid":"135816483","url":"https://www.douban.com/people/135816483/","avatar":"https://img3.doubanio.com/icon/u135816483-2.jpg","name":"阿小号","is_special_user":false,"n_posts":0,"alt":"你以为你谁啊！","large_avatar":"https://img3.doubanio.com/icon/up135816483-2.jpg","id":"135816483","is_auth_author":false}
+         * author : {"is_followed":false,"uid":"39690610","url":"https://www.douban.com/people/39690610/","avatar":"https://img3.doubanio.com/icon/u39690610-4.jpg","name":"老慢伯","is_special_user":false,"n_posts":0,"alt":"知君只爱市中隐，把酒问花坐相悦","large_avatar":"https://img3.doubanio.com/icon/up39690610-4.jpg","id":"39690610","is_auth_author":false}
          * column :
          * app_css : 7
-         * abstract : 1 贾诩投奔曹操的时候曹操一直不语。不说杀，也不说留，只是若有所思的看着他，不...
-         * date : 2017-05-06
-         * like_count : 11
-         * comments_count : 2
-         * thumbs : []
-         * created_time : 2017-04-24 14:13:31
-         * title : 贾诩的怪癖
-         * share_pic_url : https://moment.douban.com/share_pic/post/169973.jpg
+         * abstract : 很多年前的那场失败的作弊事件，却让我在日后明白了那么多从未想过的为人之道。如今想想，实在有趣的很哪！
+         * date : 2017-05-12
+         * like_count : 9
+         * comments_count : 0
+         * thumbs : [{"medium":{"url":"https://img3.doubanio.com/view/presto/medium/public/t124434.jpg","width":600,"height":401},"description":"","large":{"url":"https://img3.doubanio.com/view/presto/large/public/t124434.jpg","width":600,"height":401},"tag_name":"img_1","small":{"url":"https://img3.doubanio.com/view/presto/small/public/t124434.jpg","width":320,"height":213},"id":124434}]
+         * created_time : 2017-04-27 15:23:14
+         * title : 记一次失败的作弊事件
+         * share_pic_url : https://moment.douban.com/share_pic/post/170374.jpg
          * type : 1001
-         * id : 169973
+         * id : 170374
          */
 
         private int display_style;
@@ -108,7 +109,7 @@ public class DoubanListBean {
         private String share_pic_url;
         private String type;
         private int id;
-        private List<?> thumbs;
+        private List<ThumbsBean> thumbs;
 
         public int getDisplay_style() {
             return display_style;
@@ -262,26 +263,26 @@ public class DoubanListBean {
             this.id = id;
         }
 
-        public List<?> getThumbs() {
+        public List<ThumbsBean> getThumbs() {
             return thumbs;
         }
 
-        public void setThumbs(List<?> thumbs) {
+        public void setThumbs(List<ThumbsBean> thumbs) {
             this.thumbs = thumbs;
         }
 
         public static class AuthorBean {
             /**
              * is_followed : false
-             * uid : 135816483
-             * url : https://www.douban.com/people/135816483/
-             * avatar : https://img3.doubanio.com/icon/u135816483-2.jpg
-             * name : 阿小号
+             * uid : 39690610
+             * url : https://www.douban.com/people/39690610/
+             * avatar : https://img3.doubanio.com/icon/u39690610-4.jpg
+             * name : 老慢伯
              * is_special_user : false
              * n_posts : 0
-             * alt : 你以为你谁啊！
-             * large_avatar : https://img3.doubanio.com/icon/up135816483-2.jpg
-             * id : 135816483
+             * alt : 知君只爱市中隐，把酒问花坐相悦
+             * large_avatar : https://img3.doubanio.com/icon/up39690610-4.jpg
+             * id : 39690610
              * is_auth_author : false
              */
 
@@ -383,6 +384,180 @@ public class DoubanListBean {
 
             public void setIs_auth_author(boolean is_auth_author) {
                 this.is_auth_author = is_auth_author;
+            }
+        }
+
+        public static class ThumbsBean {
+            /**
+             * medium : {"url":"https://img3.doubanio.com/view/presto/medium/public/t124434.jpg","width":600,"height":401}
+             * description :
+             * large : {"url":"https://img3.doubanio.com/view/presto/large/public/t124434.jpg","width":600,"height":401}
+             * tag_name : img_1
+             * small : {"url":"https://img3.doubanio.com/view/presto/small/public/t124434.jpg","width":320,"height":213}
+             * id : 124434
+             */
+
+            private MediumBean medium;
+            private String description;
+            private LargeBean large;
+            private String tag_name;
+            private SmallBean small;
+            private int id;
+
+            public MediumBean getMedium() {
+                return medium;
+            }
+
+            public void setMedium(MediumBean medium) {
+                this.medium = medium;
+            }
+
+            public String getDescription() {
+                return description;
+            }
+
+            public void setDescription(String description) {
+                this.description = description;
+            }
+
+            public LargeBean getLarge() {
+                return large;
+            }
+
+            public void setLarge(LargeBean large) {
+                this.large = large;
+            }
+
+            public String getTag_name() {
+                return tag_name;
+            }
+
+            public void setTag_name(String tag_name) {
+                this.tag_name = tag_name;
+            }
+
+            public SmallBean getSmall() {
+                return small;
+            }
+
+            public void setSmall(SmallBean small) {
+                this.small = small;
+            }
+
+            public int getId() {
+                return id;
+            }
+
+            public void setId(int id) {
+                this.id = id;
+            }
+
+            public static class MediumBean {
+                /**
+                 * url : https://img3.doubanio.com/view/presto/medium/public/t124434.jpg
+                 * width : 600
+                 * height : 401
+                 */
+
+                private String url;
+                private int width;
+                private int height;
+
+                public String getUrl() {
+                    return url;
+                }
+
+                public void setUrl(String url) {
+                    this.url = url;
+                }
+
+                public int getWidth() {
+                    return width;
+                }
+
+                public void setWidth(int width) {
+                    this.width = width;
+                }
+
+                public int getHeight() {
+                    return height;
+                }
+
+                public void setHeight(int height) {
+                    this.height = height;
+                }
+            }
+
+            public static class LargeBean {
+                /**
+                 * url : https://img3.doubanio.com/view/presto/large/public/t124434.jpg
+                 * width : 600
+                 * height : 401
+                 */
+
+                private String url;
+                private int width;
+                private int height;
+
+                public String getUrl() {
+                    return url;
+                }
+
+                public void setUrl(String url) {
+                    this.url = url;
+                }
+
+                public int getWidth() {
+                    return width;
+                }
+
+                public void setWidth(int width) {
+                    this.width = width;
+                }
+
+                public int getHeight() {
+                    return height;
+                }
+
+                public void setHeight(int height) {
+                    this.height = height;
+                }
+            }
+
+            public static class SmallBean {
+                /**
+                 * url : https://img3.doubanio.com/view/presto/small/public/t124434.jpg
+                 * width : 320
+                 * height : 213
+                 */
+
+                private String url;
+                private int width;
+                private int height;
+
+                public String getUrl() {
+                    return url;
+                }
+
+                public void setUrl(String url) {
+                    this.url = url;
+                }
+
+                public int getWidth() {
+                    return width;
+                }
+
+                public void setWidth(int width) {
+                    this.width = width;
+                }
+
+                public int getHeight() {
+                    return height;
+                }
+
+                public void setHeight(int height) {
+                    this.height = height;
+                }
             }
         }
     }

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import com.sight.waynian.sight.R;
 import com.sight.waynian.sight.adapter.Adapter;
 import com.sight.waynian.sight.base.BaseFragment;
+import com.sight.waynian.sight.fragment.read.DoubanFragment;
 import com.sight.waynian.sight.fragment.read.GankFragment;
 import com.sight.waynian.sight.fragment.read.ZhiHuFragment;
 
@@ -59,7 +60,7 @@ public class ReadFragment extends BaseFragment {
         Adapter adapter = new Adapter(getChildFragmentManager());
         adapter.addFragment(new ZhiHuFragment(), "知乎");
         adapter.addFragment(new GankFragment(), "干货");
-        adapter.addFragment(new ZhiHuFragment(), "豆瓣");
+        adapter.addFragment(new DoubanFragment(), "豆瓣");
         viewPager.setAdapter(adapter);
     }
 

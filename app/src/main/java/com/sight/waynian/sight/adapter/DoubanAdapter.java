@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.elvishew.xlog.XLog;
 import com.sight.waynian.sight.R;
+import com.sight.waynian.sight.bean.douban.DoubanListBean;
 import com.sight.waynian.sight.bean.zhihu.ZhihuBean;
 import com.sight.waynian.sight.ui.WebActivity;
 
@@ -22,37 +23,45 @@ import java.util.List;
  * Created by waynian on 2017/4/17.
  */
 
-public class ZhihuAdapter extends RecyclerView.Adapter<ZhihuAdapter.ViewHolder> {
-    private List<ZhihuBean.StoriesBean> list = null;
+public class DoubanAdapter extends RecyclerView.Adapter<DoubanAdapter.ViewHolder> {
+    private List<DoubanListBean.PostsBean> list = null;
     private Context context;
 
-    public ZhihuAdapter(Context context, List<ZhihuBean.StoriesBean> list) {
+    public DoubanAdapter(Context context, List<DoubanListBean.PostsBean> list) {
         this.list = list;
         this.context = context;
     }
 
     //创建新View，被LayoutManager所调用
     @Override
-    public ZhihuAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public DoubanAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_item, viewGroup, false);
-        return new ZhihuAdapter.ViewHolder(view);
+        return new DoubanAdapter.ViewHolder(view);
     }
 
     //将数据与界面进行绑定的操作
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
 
-        (holder).tvTitle.setText(list.get(position).getTitle());
         final String id = list.get(position).getId() + "";
         final String title = list.get(position).getTitle();
-        Glide.with(context).load(list.get(position).getImages().get(0)).into((holder).ivZhihu);
+        (holder).tvTitle.setText(title);
+        if (null != list.get(position).getThumbs() && (list.get(position).getThumbs().size() > 0)) {
+            Glide.with(context).load(list.get(position).getThumbs().get(0).getMedium().getUrl()).into((holder).ivZhihu);
+        }
         (holder).cvNewsList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, WebActivity.class)
-                        .putExtra("id", id)
-                        .putExtra("title", title)
-                        .putExtra("type", "知乎"));
+                Intent intent = new Intent(context, WebActivity.class);
+                intent.putExtra("id", id);
+                intent.putExtra("title",title);
+                intent.putExtra("type", "豆瓣");
+                if (list.get(position).getThumbs().size() == 0) {
+                    intent.putExtra("coverUrl", "");
+                } else {
+                    intent.putExtra("coverUrl", list.get(position).getThumbs().get(0).getMedium().getUrl());
+                }
+                context.startActivity(intent);
             }
         });
     }
