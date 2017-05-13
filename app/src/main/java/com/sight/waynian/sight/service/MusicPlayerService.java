@@ -308,7 +308,7 @@ public class MusicPlayerService extends Service {
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 1, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         Notification notification = new Notification.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("321音乐")
+                .setContentTitle("视界音乐")
                 .setContentText("正在播放:" + getName())
                 .setContentIntent(pendingIntent)
                 .build();
